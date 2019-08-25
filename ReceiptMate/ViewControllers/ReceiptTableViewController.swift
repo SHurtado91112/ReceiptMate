@@ -216,12 +216,14 @@ extension ReceiptTableViewController: ReceiptCellDelegate {
 
     func tagSelected(_ tag: String) {
         self.navigationItem.searchController?.searchBar.text = tag
+        self.navigationItem.searchController?.isActive = true
     }
     
     func receiptSelected(_ receipt: Receipt?) {
         if let receiptImage = receipt?.receiptImage {
             self.previewer.previewContent = [receiptImage]
-            self.present(self.previewer.dismissableModalViewController())
+            
+            self.navigation?.present(self.previewer.dismissableModalViewController(), animated: true, completion: nil)
         }
     }
 }

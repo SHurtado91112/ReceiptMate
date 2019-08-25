@@ -42,7 +42,7 @@ class ReceiptCell: LUITableCell {
     
     lazy var receiptImageView : UIImageView = {
         let iv = UIImageView(image: nil)
-        iv.backgroundColor = UIColor.color(for: .theme)
+        iv.backgroundColor = .clear
         
         self.contentView.addSubview(iv)
         self.contentView.top(iv, fromTop: true, paddingType: .large, withSafety: false)
@@ -51,7 +51,9 @@ class ReceiptCell: LUITableCell {
         
         iv.height(to: 80.0)
         iv.width(to: 60.0)
-        iv.contentMode = .scaleAspectFit
+        iv.contentMode = .scaleAspectFill
+        iv.roundCorners(to: Constants.ROUNDED_CORNER_CONSTANT)
+        iv.clipsToBounds = true
         
         return iv
     } ()
@@ -115,6 +117,8 @@ class ReceiptCell: LUITableCell {
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
         if selected {
             self.delegate?.receiptSelected(self.receipt)
         }
