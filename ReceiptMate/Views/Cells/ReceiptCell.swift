@@ -17,6 +17,7 @@ protocol ReceiptCellDelegate {
 
 class ReceiptCell: LUITableCell {
 
+    static let identifier = "receipt_cell"
     lazy var storeLabel : LUILabel = {
         let label = LUILabel(color: .intermidiateText, fontSize: .small, fontStyle: .regular)
         

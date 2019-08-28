@@ -63,6 +63,24 @@ class ReceiptTableViewController: LUITableViewController {
     
     private let previewer = LUIPreviewManagerViewController()
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.searchBarAppear(false)
+        super.viewWillDisappear(animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.searchBarAppear(true)
+    }
+    
+    func searchBarAppear(_ appeared: Bool) {
+        if let searchbar = self.navigationItem.searchController?.searchBar {
+            UIView.animate(withDuration: TimeInterval.timeInterval(for: .fast)) {
+                searchbar.alpha = appeared ? 1.0 : 0.0
+            }
+        }
+    }
+    
     override func setUpViews() {
         super.setUpViews()
         
@@ -188,6 +206,10 @@ class ReceiptTableViewController: LUITableViewController {
             receiptCell.delegate = self
         }
         
+        if let storeCell = cell as? StoreCell {
+            storeCell.delegate = self
+        }
+        
         return cell
     }
 
@@ -199,11 +221,11 @@ extension ReceiptTableViewController: LUISearchTableDelegate {
         switch index {
             case 0:
                 self.rowData = self.stores
-                self.resetCells(for: StoreCell.self, cellIdentifier: "store_cell")
+                self.resetCells(for: StoreCell.self, cellIdentifier: StoreCell.identifier)
                 break
             case 1:
                 self.rowData = self.receipts
-                self.resetCells(for: ReceiptCell.self, cellIdentifier: "receipt_cell")
+                self.resetCells(for: ReceiptCell.self, cellIdentifier: ReceiptCell.identifier)
                 break
             default:
                 break
@@ -222,8 +244,30 @@ extension ReceiptTableViewController: ReceiptCellDelegate {
     func receiptSelected(_ receipt: Receipt?) {
         if let receiptImage = receipt?.receiptImage {
             self.previewer.previewContent = [receiptImage]
+            self.previewer.previewDelegate = self
             
             self.navigation?.present(self.previewer.dismissableModalViewController(), animated: true, completion: nil)
         }
+    }
+}
+
+extension ReceiptTableViewController: StoreCellDelegate {
+    
+    func storeSelected(_ store: Store?) {
+        let storeVC = StoreReceiptTableViewController(cellType: ReceiptCell.self, cellIdentifier: ReceiptCell.identifier)
+        storeVC.store = store
+        self.navigation?.push(to: storeVC)
+    }
+    
+}
+
+extension ReceiptTableViewController: LUIPreviewDelegate {
+    
+    func pageChanged() {
+        // TODO: for when multiple pages involved
+    }
+    
+    func dismissedPreview() {
+        self.viewDidAppear(true) // TODO: check if this is okay to do
     }
 }

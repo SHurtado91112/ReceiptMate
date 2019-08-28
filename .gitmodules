@@ -1,0 +1,3 @@
+[submodule "ReceiptMate/Support"]
+	path = ReceiptMate/Support
+	url = https://github.com/SHurtado91112/LazyUI.git

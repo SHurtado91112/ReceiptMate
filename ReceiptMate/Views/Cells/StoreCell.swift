@@ -9,8 +9,13 @@
 import UIKit
 import LazyUI
 
+protocol StoreCellDelegate {
+    func storeSelected(_ store: Store?)
+}
+
 class StoreCell: LUITableCell {
     
+    static let identifier = "store_cell"
     lazy var storeLabel : LUILabel = {
         let label = LUILabel(color: .darkText, fontSize: .large, fontStyle: .bold)
         
@@ -48,12 +53,22 @@ class StoreCell: LUITableCell {
         return iv
     } ()
  
+    
+    var delegate: StoreCellDelegate?
     var store: Store? {
         didSet {
             guard let store = self.store else { return }
             self.storeLabel.text = store.name
             self.brandImageView.image = store.brand
             self.numberOfReceiptsLabel.text = "\(store.receipts.count) receipt\(store.receipts.count == 1 ? "" : "s")"
+        }
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        if selected {
+            self.delegate?.storeSelected(self.store)
         }
     }
 }
