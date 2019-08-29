@@ -68,7 +68,8 @@ class ReceiptCell: LUITableCell {
         tv.contentInset = paddingManager.paddingRect(for: .regular)
         tv.spaceBetweenLines = paddingManager.padding(for: .regular)
         tv.spaceBetweenTags = paddingManager.padding(for: .regular)
-        tv.font = tv.font?.withSize(.regular)
+        tv.font = tv.font?.substituteFont.withSize(.regular)
+        
         tv.backgroundColor = UIColor.color(for: .intermidiateBackground).withAlphaComponent(0.2)
         tv.tintColor = UIColor.color(for: .theme).withAlphaComponent(0.6)
         tv.textColor = UIColor.color(for: .lightText)
@@ -83,6 +84,10 @@ class ReceiptCell: LUITableCell {
         tv.acceptTagOption = .return
         tv.cornerRadius = Constants.ROUNDED_CORNER_CONSTANT
         tv.layer.cornerRadius = Constants.ROUNDED_CORNER_CONSTANT
+        
+        let toolbar = LUIKeyboardToolBar()
+        tv.inputFieldAccessoryView = toolbar
+        toolbar.keyboardDelegate = self
         
         tv.onDidSelectTagView = { field, tag in
             let tagText = tag.displayText
@@ -137,5 +142,30 @@ extension ReceiptCell: LUICellData {
             self.receipt = receipt
         }
     }
+    
+}
+
+extension ReceiptCell: LUIKeyboardToolBarDelegate {
+    
+    func dismissRequested() {
+        self.endEditing(true)
+    }
+    
+    func canGoToPrevious() -> Bool {
+        return false
+    }
+    
+    func canGoToNext() -> Bool {
+        return false
+    }
+    
+    func previousFieldRequested() {
+        //
+    }
+    
+    func nextFieldRequested() {
+        //
+    }
+    
     
 }
