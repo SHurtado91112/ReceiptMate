@@ -11,6 +11,7 @@ import LazyUI
 
 class StoreReceiptTableViewController: LUITableViewController {
 
+    private let iconSize: CGFloat = 30.0
     var store: Store? {
         didSet {
             if let store = self.store {
@@ -31,6 +32,16 @@ class StoreReceiptTableViewController: LUITableViewController {
     
     override func setUpViews() {
         super.setUpViews()
+        
+        if let brand = self.store?.brand {
+            let brandImageView = UIImageView(image: brand)
+            brandImageView.contentMode = .scaleAspectFit
+            brandImageView.width(to: self.iconSize)
+            brandImageView.height(to: self.iconSize)
+            
+            let item = UIBarButtonItem(customView: brandImageView)
+            self.navigationItem.rightBarButtonItems = [item]
+        }
         
         // feux footer
         let safetyInsets = UIApplication.shared.keyWindow!.safeAreaInsets.bottom

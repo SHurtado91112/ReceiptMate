@@ -10,54 +10,6 @@ import UIKit
 import LazyUI
 
 class ReceiptTableViewController: LUITableViewController {
-    private let storeUrls : [String : String] = [
-        "Target" : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Target_Corporation_logo_%28vector%29.svg/1920px-Target_Corporation_logo_%28vector%29.svg.png",
-        "Macy's" : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Macys_logo.svg/2880px-Macys_logo.svg.png",
-        "Ross" : "https://upload.wikimedia.org/wikipedia/en/thumb/f/f7/Ross_Stores_logo.svg/2880px-Ross_Stores_logo.svg.png",
-        "Best Buy" : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Best_Buy_logo_2018.svg/2880px-Best_Buy_logo_2018.svg.png",
-        "Marshalls" : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Marshalls_Logo.svg/2880px-Marshalls_Logo.svg.png",
-        "DSW" : "https://upload.wikimedia.org/wikipedia/commons/b/b4/DSW_Official_Logo.png",
-        "TJ Maxx" : "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/TJ_Maxx_Logo.svg/2880px-TJ_Maxx_Logo.svg.png",
-        "Ulta" : "https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Ulta_Beauty_logo.svg/2880px-Ulta_Beauty_logo.svg.png"
-    ]
-    private let receiptJSON : [[String : Any]] = [
-        [
-            "store_name" : "Ross",
-            "date" : "Jun 08, 2019",
-            "tags" : ["return", "shirt", "towel"]
-        ],
-        [
-            "store_name" : "Target",
-            "date" : "Jan 04, 2019",
-            "tags" : ["beats", "phone case"]
-        ],
-        [
-            "store_name" : "Target",
-            "date" : "Mar 21, 2019",
-            "tags" : ["cat litter", "milk", "make up remover"]
-        ],
-        [
-            "store_name" : "Target",
-            "date" : "May 14, 2019",
-            "tags" : ["couch", "cookies", "pizza cutter"]
-        ],
-        [
-            "store_name" : "Target",
-            "date" : "Nov 24, 2018",
-            "tags" : ["shoes", "shirt", "switch"]
-        ],
-        [
-            "store_name" : "Macy's",
-            "date" : "May 15, 2019",
-            "tags" : ["purse", "pot", "make up"]
-        ],
-        [
-            "store_name" : "Ross",
-            "date" : "Jun 04, 2019",
-            "tags" : ["adidas", "shirt", "towel"]
-        ],
-    ]
-    
     var receipts : [Receipt] = []
     var stores : [Store] = []
     
@@ -85,6 +37,12 @@ class ReceiptTableViewController: LUITableViewController {
         super.setUpViews()
         
         self.title = "Receipt Mate"
+        
+        let rightItems: [UIBarButtonItem] = [
+            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addReceipt))
+        ]
+        self.navigationItem.setRightBarButtonItems(rightItems, animated: false)
+        
         self.setUpForSearch { (item, text, scope) -> Bool in
             switch scope {
             case 0:
@@ -137,7 +95,7 @@ class ReceiptTableViewController: LUITableViewController {
         
         self.receipts = []
         
-        for dict in self.receiptJSON {
+        for dict in Testing.receiptJSON {
             let receipt = Receipt(dict: dict)
             let storeName = receipt.storeName ?? ""
             self.receipts.append(receipt)
@@ -154,7 +112,7 @@ class ReceiptTableViewController: LUITableViewController {
             
             store?.receipts.append(receipt)
             
-            if let url = self.storeUrls[storeName] {
+            if let url = Store.storeUrls[storeName] {
                 UIImage.image(for: url, completion: { (image, error) in
                     if let error = error {
                         print(error.localizedDescription)
@@ -213,6 +171,12 @@ class ReceiptTableViewController: LUITableViewController {
         return cell
     }
 
+    // MARK: - Selectors
+    @objc private func addReceipt() {
+        let addReceiptVC = AddReceiptViewController()
+        let modalVC = addReceiptVC.dismissableModalViewController()
+        self.present(modalVC)
+    }
 }
 
 extension ReceiptTableViewController: LUISearchTableDelegate {
@@ -256,7 +220,7 @@ extension ReceiptTableViewController: StoreCellDelegate {
     func storeSelected(_ store: Store?) {
         let storeVC = StoreReceiptTableViewController(cellType: ReceiptCell.self, cellIdentifier: ReceiptCell.identifier)
         storeVC.store = store
-        self.navigation?.push(to: storeVC)
+        self.push(to: storeVC)
     }
     
 }
