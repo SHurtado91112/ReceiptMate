@@ -16,6 +16,7 @@
 		CD04308122DC42110018D584 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD04308022DC42110018D584 /* Constants.swift */; };
 		CD04308322DC47100018D584 /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD04308222DC47100018D584 /* ReceiptTableViewController.swift */; };
 		CD0E62A62316C357001F4498 /* LazyUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0E62A42316C28E001F4498 /* LazyUI.framework */; };
+		CD8607222331A94A0028542E /* RMDateField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8607212331A94A0028542E /* RMDateField.swift */; };
 		CDA48BA423130DD800CC8B09 /* StoreReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA48BA323130DD800CC8B09 /* StoreReceiptTableViewController.swift */; };
 		CDB4F7FD231DEA7F002244E9 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB4F7FC231DEA7F002244E9 /* Assets.swift */; };
 		CDB4F802231DFF0E002244E9 /* AddReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB4F801231DFF0E002244E9 /* AddReceiptViewController.swift */; };
@@ -64,6 +65,7 @@
 		CD04308022DC42110018D584 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CD04308222DC47100018D584 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewController.swift; sourceTree = "<group>"; };
 		CD0E629F2316C28E001F4498 /* LazyUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LazyUI.xcodeproj; path = Support/LazyUI.xcodeproj; sourceTree = "<group>"; };
+		CD8607212331A94A0028542E /* RMDateField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMDateField.swift; sourceTree = "<group>"; };
 		CDA48BA323130DD800CC8B09 /* StoreReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReceiptTableViewController.swift; sourceTree = "<group>"; };
 		CDB4F7FC231DEA7F002244E9 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		CDB4F801231DFF0E002244E9 /* AddReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReceiptViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				CD04308522DC47170018D584 /* Cells */,
 				CDB4F804231E04B4002244E9 /* RMTextField.swift */,
+				CD8607212331A94A0028542E /* RMDateField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD8607222331A94A0028542E /* RMDateField.swift in Sources */,
 				CDD437A522E4C164003A5A4B /* UIImageExtensions.swift in Sources */,
 				CD04308322DC47100018D584 /* ReceiptTableViewController.swift in Sources */,
 				CDB4F7FD231DEA7F002244E9 /* Assets.swift in Sources */,

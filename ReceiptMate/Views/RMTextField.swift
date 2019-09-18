@@ -38,6 +38,7 @@ class RMTextField: LUIView {
     
     private lazy var textField: LUITextField = {
         let field = LUITextField(paddingType: .regular, fontSize: .regular, textFontStyle: .regular, placeholderFontStyle: .italics)
+        field.borderStyle = .roundedRect
         return field
     } ()
     
@@ -48,7 +49,14 @@ class RMTextField: LUIView {
 
     private lazy var fieldStack: LUIStackView = {
         let stack = LUIStackView(padding: .regular)
-        stack.addArrangedSubview(contentViews: [self.subtitleLabel, self.textField], fill: true, direction: .horizontal)
+        
+        self.subtitleLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        self.textField.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        
+        stack.addArrangedSubview(contentViews: [self.subtitleLabel, self.textField], fill: true, direction: .horizontal, distribution: UIStackView.Distribution.fill)
+        
+        stack.height(to: self.subtitleLabel.heightAnchor, constraintOperator: .greaterThan)
+        stack.height(to: self.textField.heightAnchor, constraintOperator: .greaterThan)
         return stack
     } ()
     
@@ -66,7 +74,7 @@ class RMTextField: LUIView {
         super.init(coder: aDecoder)
     }
     
-    private func setUpView() {
+    func setUpView() {
         self.addSubview(self.fieldStack)
         self.fill(self.fieldStack, padding: .none)
     }
