@@ -48,6 +48,7 @@ class LoginViewController: LUIViewController {
         
         self.loginButton.text = "Let's get started"
         self.loginButton.onClick(sender: self, selector: #selector(self.login))
+        
     }
     
     @objc private func login() {

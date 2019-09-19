@@ -18,6 +18,8 @@
 		CD0E62A62316C357001F4498 /* LazyUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0E62A42316C28E001F4498 /* LazyUI.framework */; };
 		CD8607222331A94A0028542E /* RMDateField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8607212331A94A0028542E /* RMDateField.swift */; };
 		CDA48BA423130DD800CC8B09 /* StoreReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA48BA323130DD800CC8B09 /* StoreReceiptTableViewController.swift */; };
+		CDA5F82523341C8B005C915E /* RMSearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5F82423341C8B005C915E /* RMSearchField.swift */; };
+		CDA5F82923342953005C915E /* RmAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5F82823342953005C915E /* RmAPI.swift */; };
 		CDB4F7FD231DEA7F002244E9 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB4F7FC231DEA7F002244E9 /* Assets.swift */; };
 		CDB4F802231DFF0E002244E9 /* AddReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB4F801231DFF0E002244E9 /* AddReceiptViewController.swift */; };
 		CDB4F805231E04B4002244E9 /* RMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB4F804231E04B4002244E9 /* RMTextField.swift */; };
@@ -67,6 +69,8 @@
 		CD0E629F2316C28E001F4498 /* LazyUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LazyUI.xcodeproj; path = Support/LazyUI.xcodeproj; sourceTree = "<group>"; };
 		CD8607212331A94A0028542E /* RMDateField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMDateField.swift; sourceTree = "<group>"; };
 		CDA48BA323130DD800CC8B09 /* StoreReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReceiptTableViewController.swift; sourceTree = "<group>"; };
+		CDA5F82423341C8B005C915E /* RMSearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSearchField.swift; sourceTree = "<group>"; };
+		CDA5F82823342953005C915E /* RmAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RmAPI.swift; sourceTree = "<group>"; };
 		CDB4F7FC231DEA7F002244E9 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		CDB4F801231DFF0E002244E9 /* AddReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReceiptViewController.swift; sourceTree = "<group>"; };
 		CDB4F804231E04B4002244E9 /* RMTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMTextField.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				CDD4379D22DD8CA2003A5A4B /* Models */,
 				CD04308422DC47140018D584 /* Views */,
 				CD04307F22DC42040018D584 /* Utils */,
+				CDA5F82723342941005C915E /* API */,
 				CD04307E22DC41F90018D584 /* ViewControllers */,
 				CD04306522DC3B9D0018D584 /* Main.storyboard */,
 				CD04306822DC3B9F0018D584 /* Assets.xcassets */,
@@ -172,6 +177,7 @@
 				CD04308522DC47170018D584 /* Cells */,
 				CDB4F804231E04B4002244E9 /* RMTextField.swift */,
 				CD8607212331A94A0028542E /* RMDateField.swift */,
+				CDA5F82423341C8B005C915E /* RMSearchField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,6 +197,14 @@
 				CD0E62A42316C28E001F4498 /* LazyUI.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CDA5F82723342941005C915E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				CDA5F82823342953005C915E /* RmAPI.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		CDD4379D22DD8CA2003A5A4B /* Models */ = {
@@ -341,12 +355,14 @@
 				CDD4379C22DCD6C3003A5A4B /* StoreCell.swift in Sources */,
 				CDB4F802231DFF0E002244E9 /* AddReceiptViewController.swift in Sources */,
 				CDD437A322E4C10D003A5A4B /* Cache.swift in Sources */,
+				CDA5F82523341C8B005C915E /* RMSearchField.swift in Sources */,
 				CDB4F805231E04B4002244E9 /* RMTextField.swift in Sources */,
 				CDD437A722E4CBFE003A5A4B /* ReceiptCell.swift in Sources */,
 				CDD437A122DD9005003A5A4B /* Receipt.swift in Sources */,
 				CD04306422DC3B9D0018D584 /* LoginViewController.swift in Sources */,
 				CDD4379F22DD8CC8003A5A4B /* Store.swift in Sources */,
 				CD04306222DC3B9D0018D584 /* AppDelegate.swift in Sources */,
+				CDA5F82923342953005C915E /* RmAPI.swift in Sources */,
 				CD04308122DC42110018D584 /* Constants.swift in Sources */,
 				CDA48BA423130DD800CC8B09 /* StoreReceiptTableViewController.swift in Sources */,
 			);

@@ -17,6 +17,7 @@ class ReceiptTableViewController: LUITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.searchBarAppear(false)
+
         super.viewWillDisappear(animated)
     }
     
@@ -172,8 +173,30 @@ class ReceiptTableViewController: LUITableViewController {
     }
 
     // MARK: - Selectors
+    @objc private func changeRegistered() {
+        self.loadData()
+    }
+    
     @objc private func addReceipt() {
         let addReceiptVC = AddReceiptViewController()
+        
+        var storeNames: [String] = []
+        
+        // stores we read
+        for store in self.stores {
+            if let storeName = store.name {
+                storeNames.append(storeName)
+            }
+        }
+        
+        // stores that are stored by default
+        for (storeName, _) in Store.storeUrls {
+            if !storeNames.contains(storeName) {
+                storeNames.append(storeName)
+            }
+        }
+        
+        addReceiptVC.storeSuggestions = storeNames.sorted()
         let modalVC = addReceiptVC.dismissableModalViewController()
         self.present(modalVC)
     }

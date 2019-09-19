@@ -7,4 +7,5 @@ target 'ReceiptMate' do
 
   # Pods for ReceiptMate
   pod "WSTagsField"
+  pod "SearchTextField"
 end

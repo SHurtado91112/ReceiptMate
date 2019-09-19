@@ -1,16 +1,20 @@
 PODS:
+  - SearchTextField (1.2.4)
   - WSTagsField (5.0.0)
 
 DEPENDENCIES:
+  - SearchTextField
   - WSTagsField
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - SearchTextField
     - WSTagsField
 
 SPEC CHECKSUMS:
+  SearchTextField: 40dc3cc57def5a211f263cac263622c163bbc25a
   WSTagsField: 5963db79f251c2a87ecfcf5dbfa36d05efc3d548
 
-PODFILE CHECKSUM: d130a506b6111dca08b0e18df6614429b8a285af
+PODFILE CHECKSUM: 4c106d137f12ba2b0d63129f4d44c7856639f5b7
 
 COCOAPODS: 1.7.5
