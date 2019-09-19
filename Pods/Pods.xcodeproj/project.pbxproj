@@ -3,70 +3,97 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		041F28ABB52B52554C402AD0C26277EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
-		27630838391190C070368C0A40C76897 /* Pods-ReceiptMate-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D16543E38CD3029580BAB4EE2A0C85 /* Pods-ReceiptMate-dummy.m */; };
-		2E7CBC0FF91E3BB1781E2076B1150448 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		56B6F8BE1ADAAD15EE2699B0E8626520 /* WSTagsField.h in Headers */ = {isa = PBXBuildFile; fileRef = 73D3953C7EEE0D2C5B18895A653DBD67 /* WSTagsField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5ED26C19396618701EB136D333A5B387 /* Pods-ReceiptMate-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 526D58BD53DF8162FCA6599B805DCEC8 /* Pods-ReceiptMate-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C73AD26560F4F1E2AF3F932B69D7ECC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7FF0D3925C53638D2D9784E48F44B8 /* Constants.swift */; };
+		111708E0BE4F4A95E91F4F7DCDE826EE /* SearchTextField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 515A5E3056BDF8D42F3184AEE40E3A03 /* SearchTextField-dummy.m */; };
+		136EE44B017FA1CA5EB9BA159D812F7A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		1E94646F9A817886ECA0E42C37E6B7C2 /* Pods-ReceiptMate-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D16543E38CD3029580BAB4EE2A0C85 /* Pods-ReceiptMate-dummy.m */; };
+		33158F6AA9B2AC0F8A2E8E609B6CDBBB /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15401E3973BD1BDC3F0430658F17E469 /* SearchTextField.swift */; };
+		56B6F8BE1ADAAD15EE2699B0E8626520 /* WSTagsField.h in Headers */ = {isa = PBXBuildFile; fileRef = 6737B0E4C69EE3343ED71B2ED15011DE /* WSTagsField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C73AD26560F4F1E2AF3F932B69D7ECC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603A167B5066D1EACFFF051B12138AB7 /* Constants.swift */; };
 		6E4F4043A076AE20103C19A017DFDB46 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		7995EBB1792AE67A0CE2EAE401BD7C00 /* WSTagsField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C29090366790824F97D7CCA52FD550F2 /* WSTagsField-dummy.m */; };
-		AE6FE49C9A2A95E4B5DC9907EC2DE737 /* WSTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA48CC59FACF97FC66EA0805062B6374 /* WSTag.swift */; };
-		C76E5376F179D4D44526BBD8B57AFB27 /* WSTagsField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C70F94F2C5379BF630C1703469AD0 /* WSTagsField.swift */; };
-		CBB38620D1F4FCAD4A3349652C0BE0C3 /* BackspaceDetectingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6E6DAB350456434D72C6830F33EA5 /* BackspaceDetectingTextField.swift */; };
-		DB94F4344BBA703275294E1B3E9462D7 /* WSTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DD382AB427519D2DEAE069E089465C /* WSTagView.swift */; };
-		DF04B7B6631B00E4DBD3ABAE6C70E654 /* WSTagsField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EBA9398B213B109ABAC417BAABCB89B5 /* WSTagsField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7995EBB1792AE67A0CE2EAE401BD7C00 /* WSTagsField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA471A0B9F7D9CFCF3B2B288E8D0258 /* WSTagsField-dummy.m */; };
+		ACD2F272E615997B52067B36F3458480 /* Pods-ReceiptMate-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 526D58BD53DF8162FCA6599B805DCEC8 /* Pods-ReceiptMate-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AE6FE49C9A2A95E4B5DC9907EC2DE737 /* WSTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2932433099F94A3C4506F2328990AEA /* WSTag.swift */; };
+		B83EBA6E619D3AB75420B8E43D90B0F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		C76E5376F179D4D44526BBD8B57AFB27 /* WSTagsField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1A5DD8F45290F8315F89E4F6675B7F /* WSTagsField.swift */; };
+		CBB38620D1F4FCAD4A3349652C0BE0C3 /* BackspaceDetectingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A559F97A9DC47CFF764322C4EAB8D656 /* BackspaceDetectingTextField.swift */; };
+		CBCF786E6641DBC7D9B95367B7FF77C2 /* SearchTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 300CEB2F6F5CD79759664749E9228E13 /* SearchTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DB94F4344BBA703275294E1B3E9462D7 /* WSTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320617679CFA2A189E22F82DCDD997BC /* WSTagView.swift */; };
+		DF04B7B6631B00E4DBD3ABAE6C70E654 /* WSTagsField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C5AEADCF2A5E21F29968084EB6191E3 /* WSTagsField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5785A65C673435BB94507ABDDE002161 /* PBXContainerItemProxy */ = {
+		3A72D2A2BFB307B4F27547BA6270D912 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4C29D541F56589C0CB5C10F0BDAF37E0;
 			remoteInfo = WSTagsField;
 		};
+		AD9C23B244962D0D5D223B286865737B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8C3F94412D7198255213EB9BC85FFF6E;
+			remoteInfo = SearchTextField;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1BC6E6DAB350456434D72C6830F33EA5 /* BackspaceDetectingTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BackspaceDetectingTextField.swift; path = Source/BackspaceDetectingTextField.swift; sourceTree = "<group>"; };
+		05CEFF31116EE6B0DCBF2FFB6194F60F /* SearchTextField-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SearchTextField-prefix.pch"; sourceTree = "<group>"; };
+		15401E3973BD1BDC3F0430658F17E469 /* SearchTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SearchTextField.swift; path = SearchTextField/Classes/SearchTextField.swift; sourceTree = "<group>"; };
+		24F73658DE52D712683D62C344764D17 /* WSTagsField-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "WSTagsField-Info.plist"; sourceTree = "<group>"; };
+		27E38DF68C673A5EB8644FB6A9772F87 /* SearchTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SearchTextField.framework; path = SearchTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D3C2DE32857252334D12D9AC3D2C2D0 /* SearchTextField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SearchTextField.modulemap; sourceTree = "<group>"; };
+		300CEB2F6F5CD79759664749E9228E13 /* SearchTextField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SearchTextField-umbrella.h"; sourceTree = "<group>"; };
 		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		320617679CFA2A189E22F82DCDD997BC /* WSTagView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WSTagView.swift; path = Source/WSTagView.swift; sourceTree = "<group>"; };
 		32249F309295B429070B817DCDF5EBAB /* Pods-ReceiptMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReceiptMate.release.xcconfig"; sourceTree = "<group>"; };
 		326854B171F6152E30EB1E5B0924D7AD /* Pods-ReceiptMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReceiptMate.debug.xcconfig"; sourceTree = "<group>"; };
-		3ED6FB530D0441D90FF21F10EAC966E4 /* WSTagsField-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "WSTagsField-Info.plist"; sourceTree = "<group>"; };
+		37B97A10A5921FB59158C3D50B59C328 /* WSTagsField-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WSTagsField-prefix.pch"; sourceTree = "<group>"; };
+		3FA471A0B9F7D9CFCF3B2B288E8D0258 /* WSTagsField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WSTagsField-dummy.m"; sourceTree = "<group>"; };
 		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		440E877217C9FD3374694DBEDDB29000 /* SearchTextField-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SearchTextField-Info.plist"; sourceTree = "<group>"; };
+		515A5E3056BDF8D42F3184AEE40E3A03 /* SearchTextField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SearchTextField-dummy.m"; sourceTree = "<group>"; };
 		526D58BD53DF8162FCA6599B805DCEC8 /* Pods-ReceiptMate-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ReceiptMate-umbrella.h"; sourceTree = "<group>"; };
 		58EF6ADF8804D5BCE2DCFE256FE279B5 /* Pods-ReceiptMate-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ReceiptMate-frameworks.sh"; sourceTree = "<group>"; };
 		5EF085ADC9BBF858D614542A544DF93D /* Pods-ReceiptMate-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ReceiptMate-acknowledgements.plist"; sourceTree = "<group>"; };
-		73D3953C7EEE0D2C5B18895A653DBD67 /* WSTagsField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WSTagsField.h; path = WSTagsField/WSTagsField.h; sourceTree = "<group>"; };
+		603A167B5066D1EACFFF051B12138AB7 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Source/Constants.swift; sourceTree = "<group>"; };
+		6737B0E4C69EE3343ED71B2ED15011DE /* WSTagsField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WSTagsField.h; path = WSTagsField/WSTagsField.h; sourceTree = "<group>"; };
+		8F5909F4145534481D302F1A3734EB01 /* WSTagsField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = WSTagsField.modulemap; sourceTree = "<group>"; };
 		93315ACC10C588132880F0AA7CDF207C /* Pods_ReceiptMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ReceiptMate.framework; path = "Pods-ReceiptMate.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C5AEADCF2A5E21F29968084EB6191E3 /* WSTagsField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WSTagsField-umbrella.h"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A08C70F94F2C5379BF630C1703469AD0 /* WSTagsField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WSTagsField.swift; path = Source/WSTagsField.swift; sourceTree = "<group>"; };
 		A2D16543E38CD3029580BAB4EE2A0C85 /* Pods-ReceiptMate-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ReceiptMate-dummy.m"; sourceTree = "<group>"; };
-		AC5DF503972DBCF575EE79CE2AC4576F /* WSTagsField.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WSTagsField.xcconfig; sourceTree = "<group>"; };
-		B5DD382AB427519D2DEAE069E089465C /* WSTagView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WSTagView.swift; path = Source/WSTagView.swift; sourceTree = "<group>"; };
-		C29090366790824F97D7CCA52FD550F2 /* WSTagsField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WSTagsField-dummy.m"; sourceTree = "<group>"; };
-		DD7FF0D3925C53638D2D9784E48F44B8 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Source/Constants.swift; sourceTree = "<group>"; };
-		EA48CC59FACF97FC66EA0805062B6374 /* WSTag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WSTag.swift; path = Source/WSTag.swift; sourceTree = "<group>"; };
-		EBA9398B213B109ABAC417BAABCB89B5 /* WSTagsField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WSTagsField-umbrella.h"; sourceTree = "<group>"; };
-		ED54B8B2F82C54AFFF82B55BB816160D /* WSTagsField-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WSTagsField-prefix.pch"; sourceTree = "<group>"; };
+		A559F97A9DC47CFF764322C4EAB8D656 /* BackspaceDetectingTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BackspaceDetectingTextField.swift; path = Source/BackspaceDetectingTextField.swift; sourceTree = "<group>"; };
+		D2932433099F94A3C4506F2328990AEA /* WSTag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WSTag.swift; path = Source/WSTag.swift; sourceTree = "<group>"; };
+		DF1A5DD8F45290F8315F89E4F6675B7F /* WSTagsField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WSTagsField.swift; path = Source/WSTagsField.swift; sourceTree = "<group>"; };
+		DFD1F99B67D13BE720BB6198A768CC04 /* SearchTextField.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SearchTextField.xcconfig; sourceTree = "<group>"; };
+		EE8CC2DA202F267806F6A4485DC73D53 /* WSTagsField.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WSTagsField.xcconfig; sourceTree = "<group>"; };
 		F251D38581390D6F7F31A8E5F328F740 /* Pods-ReceiptMate-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ReceiptMate-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F9AD64DC4F46309F26A502FD8BDACBF4 /* WSTagsField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = WSTagsField.framework; path = WSTagsField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA5D19FC6019DD502DE09E1BD8886936 /* WSTagsField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = WSTagsField.modulemap; sourceTree = "<group>"; };
 		FEB54A8D4F4F193E3C630CDDA1AFD124 /* Pods-ReceiptMate-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ReceiptMate-Info.plist"; sourceTree = "<group>"; };
 		FFBDE99D9B8E60C4079DC534790A00CC /* Pods-ReceiptMate.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ReceiptMate.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0CEAF930181D3EB559302C5072D46CDD /* Frameworks */ = {
+		47EAF76306FE1C55CAD1C66389DD0FE9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E7CBC0FF91E3BB1781E2076B1150448 /* Foundation.framework in Frameworks */,
+				B83EBA6E619D3AB75420B8E43D90B0F2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62414719C1CE95D9C5082E6F9FBA37C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				136EE44B017FA1CA5EB9BA159D812F7A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,15 +117,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1BE8A9B2063C235A91B7593DFD9CFE91 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				93315ACC10C588132880F0AA7CDF207C /* Pods_ReceiptMate.framework */,
-				F9AD64DC4F46309F26A502FD8BDACBF4 /* WSTagsField.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		22A4FAE0D21647BAC260222F9441F1EA /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,27 +125,52 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		44487E5EA966A20F61DF74A88F0ED816 /* WSTagsField */ = {
+		338955A6EA29E38380BDA334D674E37C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				1BC6E6DAB350456434D72C6830F33EA5 /* BackspaceDetectingTextField.swift */,
-				DD7FF0D3925C53638D2D9784E48F44B8 /* Constants.swift */,
-				EA48CC59FACF97FC66EA0805062B6374 /* WSTag.swift */,
-				73D3953C7EEE0D2C5B18895A653DBD67 /* WSTagsField.h */,
-				A08C70F94F2C5379BF630C1703469AD0 /* WSTagsField.swift */,
-				B5DD382AB427519D2DEAE069E089465C /* WSTagView.swift */,
-				CDAC20E04C384107F295475DE565B8CF /* Support Files */,
+				2D3C2DE32857252334D12D9AC3D2C2D0 /* SearchTextField.modulemap */,
+				DFD1F99B67D13BE720BB6198A768CC04 /* SearchTextField.xcconfig */,
+				515A5E3056BDF8D42F3184AEE40E3A03 /* SearchTextField-dummy.m */,
+				440E877217C9FD3374694DBEDDB29000 /* SearchTextField-Info.plist */,
+				05CEFF31116EE6B0DCBF2FFB6194F60F /* SearchTextField-prefix.pch */,
+				300CEB2F6F5CD79759664749E9228E13 /* SearchTextField-umbrella.h */,
 			);
-			name = WSTagsField;
-			path = WSTagsField;
+			name = "Support Files";
+			path = "../Target Support Files/SearchTextField";
 			sourceTree = "<group>";
 		};
-		49F9C80332F5B48CC2DD035ABC26B2AA /* Pods */ = {
+		51BB558D22612FE067D6C3A4676C2012 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				44487E5EA966A20F61DF74A88F0ED816 /* WSTagsField */,
+				8F5909F4145534481D302F1A3734EB01 /* WSTagsField.modulemap */,
+				EE8CC2DA202F267806F6A4485DC73D53 /* WSTagsField.xcconfig */,
+				3FA471A0B9F7D9CFCF3B2B288E8D0258 /* WSTagsField-dummy.m */,
+				24F73658DE52D712683D62C344764D17 /* WSTagsField-Info.plist */,
+				37B97A10A5921FB59158C3D50B59C328 /* WSTagsField-prefix.pch */,
+				9C5AEADCF2A5E21F29968084EB6191E3 /* WSTagsField-umbrella.h */,
 			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/WSTagsField";
+			sourceTree = "<group>";
+		};
+		784217BEDE1B1C5FDDA17A2DE41A34E8 /* SearchTextField */ = {
+			isa = PBXGroup;
+			children = (
+				15401E3973BD1BDC3F0430658F17E469 /* SearchTextField.swift */,
+				338955A6EA29E38380BDA334D674E37C /* Support Files */,
+			);
+			name = SearchTextField;
+			path = SearchTextField;
+			sourceTree = "<group>";
+		};
+		794CBA1461FE0DD469E98C8389ED9627 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93315ACC10C588132880F0AA7CDF207C /* Pods_ReceiptMate.framework */,
+				27E38DF68C673A5EB8644FB6A9772F87 /* SearchTextField.framework */,
+				F9AD64DC4F46309F26A502FD8BDACBF4 /* WSTagsField.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		8831D0893EAA68E81171E9F842294480 /* Pods-ReceiptMate */ = {
@@ -147,18 +190,28 @@
 			path = "Target Support Files/Pods-ReceiptMate";
 			sourceTree = "<group>";
 		};
-		CDAC20E04C384107F295475DE565B8CF /* Support Files */ = {
+		C30F9A1BFFE02B145537392025F5B663 /* WSTagsField */ = {
 			isa = PBXGroup;
 			children = (
-				FA5D19FC6019DD502DE09E1BD8886936 /* WSTagsField.modulemap */,
-				AC5DF503972DBCF575EE79CE2AC4576F /* WSTagsField.xcconfig */,
-				C29090366790824F97D7CCA52FD550F2 /* WSTagsField-dummy.m */,
-				3ED6FB530D0441D90FF21F10EAC966E4 /* WSTagsField-Info.plist */,
-				ED54B8B2F82C54AFFF82B55BB816160D /* WSTagsField-prefix.pch */,
-				EBA9398B213B109ABAC417BAABCB89B5 /* WSTagsField-umbrella.h */,
+				A559F97A9DC47CFF764322C4EAB8D656 /* BackspaceDetectingTextField.swift */,
+				603A167B5066D1EACFFF051B12138AB7 /* Constants.swift */,
+				D2932433099F94A3C4506F2328990AEA /* WSTag.swift */,
+				6737B0E4C69EE3343ED71B2ED15011DE /* WSTagsField.h */,
+				DF1A5DD8F45290F8315F89E4F6675B7F /* WSTagsField.swift */,
+				320617679CFA2A189E22F82DCDD997BC /* WSTagView.swift */,
+				51BB558D22612FE067D6C3A4676C2012 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/WSTagsField";
+			name = WSTagsField;
+			path = WSTagsField;
+			sourceTree = "<group>";
+		};
+		C52C0CFB0A517FC05EE404A18FD58EC2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				784217BEDE1B1C5FDDA17A2DE41A34E8 /* SearchTextField */,
+				C30F9A1BFFE02B145537392025F5B663 /* WSTagsField */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -166,8 +219,8 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				49F9C80332F5B48CC2DD035ABC26B2AA /* Pods */,
-				1BE8A9B2063C235A91B7593DFD9CFE91 /* Products */,
+				C52C0CFB0A517FC05EE404A18FD58EC2 /* Pods */,
+				794CBA1461FE0DD469E98C8389ED9627 /* Products */,
 				22A4FAE0D21647BAC260222F9441F1EA /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -184,6 +237,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		2872B343BA69B032B50D9386E4B619D0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACD2F272E615997B52067B36F3458480 /* Pods-ReceiptMate-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8415A006C2A261D8C3477FE710B9FF29 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -193,11 +254,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D44904D7B8A44C961F1D4AC3CFE2839B /* Headers */ = {
+		C6E5627924637131DB9F2B006EA4C568 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5ED26C19396618701EB136D333A5B387 /* Pods-ReceiptMate-umbrella.h in Headers */,
+				CBCF786E6641DBC7D9B95367B7FF77C2 /* SearchTextField-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,19 +283,38 @@
 			productReference = F9AD64DC4F46309F26A502FD8BDACBF4 /* WSTagsField.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		BB8595211535E03C1F492A7A384E5D5E /* Pods-ReceiptMate */ = {
+		8C3F94412D7198255213EB9BC85FFF6E /* SearchTextField */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BB96055A0BBE52627F4831CF95FA5B11 /* Build configuration list for PBXNativeTarget "Pods-ReceiptMate" */;
+			buildConfigurationList = 628B428BFAD1C51B3CF236C8AD850806 /* Build configuration list for PBXNativeTarget "SearchTextField" */;
 			buildPhases = (
-				D44904D7B8A44C961F1D4AC3CFE2839B /* Headers */,
-				D9D0F0FB6781FBBD0E20AF79CBB253E7 /* Sources */,
-				0CEAF930181D3EB559302C5072D46CDD /* Frameworks */,
-				A2FD9097294D2EC6C8D72B7AD092D1AA /* Resources */,
+				C6E5627924637131DB9F2B006EA4C568 /* Headers */,
+				EAB4CE7C80BBD4A38025825217B4DF24 /* Sources */,
+				62414719C1CE95D9C5082E6F9FBA37C2 /* Frameworks */,
+				10CC901AB5D433206A3F5C4127862CF8 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4037C5373222694041E0404DF29F5E74 /* PBXTargetDependency */,
+			);
+			name = SearchTextField;
+			productName = SearchTextField;
+			productReference = 27E38DF68C673A5EB8644FB6A9772F87 /* SearchTextField.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BB8595211535E03C1F492A7A384E5D5E /* Pods-ReceiptMate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 509F2C669149C510FDF297520DE654BD /* Build configuration list for PBXNativeTarget "Pods-ReceiptMate" */;
+			buildPhases = (
+				2872B343BA69B032B50D9386E4B619D0 /* Headers */,
+				827D81F332B9BBD84F8B1FC285A9434C /* Sources */,
+				47EAF76306FE1C55CAD1C66389DD0FE9 /* Frameworks */,
+				970DCC8EEE0665676A42208DAF368409 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				834E905F7087A77F140801D3022D8B72 /* PBXTargetDependency */,
+				F747592418C6407BA45D0FA32E88A37C /* PBXTargetDependency */,
 			);
 			name = "Pods-ReceiptMate";
 			productName = "Pods-ReceiptMate";
@@ -251,25 +331,33 @@
 				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 1BE8A9B2063C235A91B7593DFD9CFE91 /* Products */;
+			productRefGroup = 794CBA1461FE0DD469E98C8389ED9627 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				BB8595211535E03C1F492A7A384E5D5E /* Pods-ReceiptMate */,
+				8C3F94412D7198255213EB9BC85FFF6E /* SearchTextField */,
 				4C29D541F56589C0CB5C10F0BDAF37E0 /* WSTagsField */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A2FD9097294D2EC6C8D72B7AD092D1AA /* Resources */ = {
+		10CC901AB5D433206A3F5C4127862CF8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		970DCC8EEE0665676A42208DAF368409 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -286,6 +374,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		827D81F332B9BBD84F8B1FC285A9434C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E94646F9A817886ECA0E42C37E6B7C2 /* Pods-ReceiptMate-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		90BA270FD494A18955BE5493E03344D7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -299,32 +395,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D9D0F0FB6781FBBD0E20AF79CBB253E7 /* Sources */ = {
+		EAB4CE7C80BBD4A38025825217B4DF24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27630838391190C070368C0A40C76897 /* Pods-ReceiptMate-dummy.m in Sources */,
+				111708E0BE4F4A95E91F4F7DCDE826EE /* SearchTextField-dummy.m in Sources */,
+				33158F6AA9B2AC0F8A2E8E609B6CDBBB /* SearchTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4037C5373222694041E0404DF29F5E74 /* PBXTargetDependency */ = {
+		834E905F7087A77F140801D3022D8B72 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SearchTextField;
+			target = 8C3F94412D7198255213EB9BC85FFF6E /* SearchTextField */;
+			targetProxy = AD9C23B244962D0D5D223B286865737B /* PBXContainerItemProxy */;
+		};
+		F747592418C6407BA45D0FA32E88A37C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = WSTagsField;
 			target = 4C29D541F56589C0CB5C10F0BDAF37E0 /* WSTagsField */;
-			targetProxy = 5785A65C673435BB94507ABDDE002161 /* PBXContainerItemProxy */;
+			targetProxy = 3A72D2A2BFB307B4F27547BA6270D912 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0E57989B5437EC628022D2C905514E1C /* Release */ = {
+		19D33543F6010849E6E66A75A462162B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32249F309295B429070B817DCDF5EBAB /* Pods-ReceiptMate.release.xcconfig */;
+			baseConfigurationReference = DFD1F99B67D13BE720BB6198A768CC04 /* SearchTextField.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -334,29 +435,27 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-ReceiptMate/Pods-ReceiptMate-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SearchTextField/SearchTextField-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SearchTextField/SearchTextField-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ReceiptMate/Pods-ReceiptMate.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/SearchTextField/SearchTextField.modulemap";
+				PRODUCT_MODULE_NAME = SearchTextField;
+				PRODUCT_NAME = SearchTextField;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		204B8AEA4AE90A551A1768B355C2F9F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -424,7 +523,7 @@
 		};
 		216BA650E784AB09A5985A45E8513580 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC5DF503972DBCF575EE79CE2AC4576F /* WSTagsField.xcconfig */;
+			baseConfigurationReference = EE8CC2DA202F267806F6A4485DC73D53 /* WSTagsField.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -518,7 +617,7 @@
 			};
 			name = Release;
 		};
-		70CDFC4395F9E7758F18B6A88FC91B02 /* Debug */ = {
+		40DAF1687FC0E5FAD462BA7B40D9501C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 326854B171F6152E30EB1E5B0924D7AD /* Pods-ReceiptMate.debug.xcconfig */;
 			buildSettings = {
@@ -556,9 +655,84 @@
 			};
 			name = Debug;
 		};
+		89077CEB56D7290934F574CCC418667C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFD1F99B67D13BE720BB6198A768CC04 /* SearchTextField.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SearchTextField/SearchTextField-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SearchTextField/SearchTextField-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SearchTextField/SearchTextField.modulemap";
+				PRODUCT_MODULE_NAME = SearchTextField;
+				PRODUCT_NAME = SearchTextField;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E829B4D02F87C9EE5C22AAE5EF2FDE42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32249F309295B429070B817DCDF5EBAB /* Pods-ReceiptMate.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ReceiptMate/Pods-ReceiptMate-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ReceiptMate/Pods-ReceiptMate.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		F4E09BD799F5111571EA773CC760AD72 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC5DF503972DBCF575EE79CE2AC4576F /* WSTagsField.xcconfig */;
+			baseConfigurationReference = EE8CC2DA202F267806F6A4485DC73D53 /* WSTagsField.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -612,11 +786,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BB96055A0BBE52627F4831CF95FA5B11 /* Build configuration list for PBXNativeTarget "Pods-ReceiptMate" */ = {
+		509F2C669149C510FDF297520DE654BD /* Build configuration list for PBXNativeTarget "Pods-ReceiptMate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				70CDFC4395F9E7758F18B6A88FC91B02 /* Debug */,
-				0E57989B5437EC628022D2C905514E1C /* Release */,
+				40DAF1687FC0E5FAD462BA7B40D9501C /* Debug */,
+				E829B4D02F87C9EE5C22AAE5EF2FDE42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		628B428BFAD1C51B3CF236C8AD850806 /* Build configuration list for PBXNativeTarget "SearchTextField" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19D33543F6010849E6E66A75A462162B /* Debug */,
+				89077CEB56D7290934F574CCC418667C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

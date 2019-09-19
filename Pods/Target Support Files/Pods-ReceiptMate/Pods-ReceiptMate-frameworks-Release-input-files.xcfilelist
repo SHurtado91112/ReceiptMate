@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-ReceiptMate/Pods-ReceiptMate-frameworks.sh
+${BUILT_PRODUCTS_DIR}/SearchTextField/SearchTextField.framework
 ${BUILT_PRODUCTS_DIR}/WSTagsField/WSTagsField.framework
