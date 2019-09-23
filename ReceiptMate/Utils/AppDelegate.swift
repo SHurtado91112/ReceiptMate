@@ -8,6 +8,7 @@
 
 import UIKit
 import LazyUI
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // Mark: - Firebase set up
+        FirebaseApp.configure()
         
         // Mark: - LazyUI set up
         
@@ -32,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Mark: - root view controller
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = LoginViewController(nibName: nil, bundle: nil)
+        self.window?.rootViewController = LUINavigationViewController(rootVC: LoginViewController(nibName: nil, bundle: nil))
         self.window?.makeKeyAndVisible()
         
         return true

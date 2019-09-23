@@ -101,7 +101,7 @@ class RMSearchField: LUIView {
     } ()
     
     private lazy var subtitleLabel: LUILabel = {
-        let label = LUILabel(color: .intermidiateText, fontSize: .regular, fontStyle: .bold)
+        let label = LUILabel(color: .theme, fontSize: .regular, fontStyle: .bold)
         return label
     } ()
     

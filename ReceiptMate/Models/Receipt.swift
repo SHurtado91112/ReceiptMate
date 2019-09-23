@@ -18,7 +18,7 @@ class Receipt : NSObject {
     
     init(dict: [String : Any]) {
         
-        if let storeName = dict["store_name"] as? String {
+        if let storeName = dict["store"] as? String {
             self.storeName = storeName
         }
         
@@ -28,11 +28,11 @@ class Receipt : NSObject {
             self.date = df.date(from: dateString)
         }
         
-        self.receiptImage = UIImage(named: "receipt_sample")
-//        if let receiptImageUrl = dict["img_url"] as? String {
-//            
-//            // get img from url
-//        }
+//        self.receiptImage = UIImage(named: "receipt_sample")
+        if let receiptImageUrl = dict["img_url"] as? String {
+            
+            // get img from url
+        }
         
         if let tags = dict["tags"] as? [String] {
             for tag in tags {

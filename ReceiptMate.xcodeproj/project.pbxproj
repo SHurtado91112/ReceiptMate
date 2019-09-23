@@ -20,6 +20,8 @@
 		CDA48BA423130DD800CC8B09 /* StoreReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA48BA323130DD800CC8B09 /* StoreReceiptTableViewController.swift */; };
 		CDA5F82523341C8B005C915E /* RMSearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5F82423341C8B005C915E /* RMSearchField.swift */; };
 		CDA5F82923342953005C915E /* RmAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5F82823342953005C915E /* RmAPI.swift */; };
+		CDA5F82C23342E19005C915E /* RMLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5F82B23342E19005C915E /* RMLoginView.swift */; };
+		CDA5F82F233432A3005C915E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDA5F82E233432A3005C915E /* GoogleService-Info.plist */; };
 		CDB4F7FD231DEA7F002244E9 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB4F7FC231DEA7F002244E9 /* Assets.swift */; };
 		CDB4F802231DFF0E002244E9 /* AddReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB4F801231DFF0E002244E9 /* AddReceiptViewController.swift */; };
 		CDB4F805231E04B4002244E9 /* RMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB4F804231E04B4002244E9 /* RMTextField.swift */; };
@@ -71,6 +73,8 @@
 		CDA48BA323130DD800CC8B09 /* StoreReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReceiptTableViewController.swift; sourceTree = "<group>"; };
 		CDA5F82423341C8B005C915E /* RMSearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSearchField.swift; sourceTree = "<group>"; };
 		CDA5F82823342953005C915E /* RmAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RmAPI.swift; sourceTree = "<group>"; };
+		CDA5F82B23342E19005C915E /* RMLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMLoginView.swift; sourceTree = "<group>"; };
+		CDA5F82E233432A3005C915E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CDB4F7FC231DEA7F002244E9 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		CDB4F801231DFF0E002244E9 /* AddReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReceiptViewController.swift; sourceTree = "<group>"; };
 		CDB4F804231E04B4002244E9 /* RMTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMTextField.swift; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 				CD04306822DC3B9F0018D584 /* Assets.xcassets */,
 				CD04306A22DC3B9F0018D584 /* LaunchScreen.storyboard */,
 				CD04306D22DC3B9F0018D584 /* Info.plist */,
+				CDA5F82E233432A3005C915E /* GoogleService-Info.plist */,
 			);
 			path = ReceiptMate;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 				CDB4F804231E04B4002244E9 /* RMTextField.swift */,
 				CD8607212331A94A0028542E /* RMDateField.swift */,
 				CDA5F82423341C8B005C915E /* RMSearchField.swift */,
+				CDA5F82B23342E19005C915E /* RMLoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -294,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD04306C22DC3B9F0018D584 /* LaunchScreen.storyboard in Resources */,
+				CDA5F82F233432A3005C915E /* GoogleService-Info.plist in Resources */,
 				CD04306922DC3B9F0018D584 /* Assets.xcassets in Resources */,
 				CD04306722DC3B9D0018D584 /* Main.storyboard in Resources */,
 			);
@@ -357,6 +364,7 @@
 				CDD437A322E4C10D003A5A4B /* Cache.swift in Sources */,
 				CDA5F82523341C8B005C915E /* RMSearchField.swift in Sources */,
 				CDB4F805231E04B4002244E9 /* RMTextField.swift in Sources */,
+				CDA5F82C23342E19005C915E /* RMLoginView.swift in Sources */,
 				CDD437A722E4CBFE003A5A4B /* ReceiptCell.swift in Sources */,
 				CDD437A122DD9005003A5A4B /* Receipt.swift in Sources */,
 				CD04306422DC3B9D0018D584 /* LoginViewController.swift in Sources */,

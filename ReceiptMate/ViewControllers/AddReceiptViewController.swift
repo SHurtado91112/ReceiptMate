@@ -67,7 +67,7 @@ class AddReceiptViewController: LUIViewController {
         tv.isDelimiterVisible = false
         tv.placeholderColor = UIColor.color(for: .intermidiateText)
         tv.placeholderAlwaysVisible = false
-        tv.returnKeyType = .next
+        tv.returnKeyType = UIReturnKeyType.next
         tv.acceptTagOption = .return
         tv.cornerRadius = Constants.ROUNDED_CORNER_CONSTANT
         tv.layer.cornerRadius = Constants.ROUNDED_CORNER_CONSTANT
@@ -81,13 +81,13 @@ class AddReceiptViewController: LUIViewController {
     } ()
     
     private lazy var detailSubtitleLabel: LUILabel = {
-        let label = LUILabel(color: .theme, fontSize: .large, fontStyle: .bold)
+        let label = LUILabel(color: .darkText, fontSize: .large, fontStyle: .bold)
         label.text = "Receipt details"
         return label
     } ()
     
     private lazy var photoSubtitleLabel: LUILabel = {
-        let label = LUILabel(color: .theme, fontSize: .large, fontStyle: .bold)
+        let label = LUILabel(color: .darkText, fontSize: .large, fontStyle: .bold)
         label.text = "Receipt photo"
         return label
     } ()
@@ -171,11 +171,6 @@ class AddReceiptViewController: LUIViewController {
     
     func setUpViews() {
         self.title = "Add New Receipt"
-        
-        if let rootView = self.view as? LUIView {
-            rootView.contentScrollView.showsVerticalScrollIndicator = false
-            rootView.contentScrollView.showsHorizontalScrollIndicator = false
-        }
         
         self.addView(self.contentView)
         

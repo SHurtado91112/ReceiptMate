@@ -36,6 +36,8 @@ class RMTextField: LUIView {
         return self.textField
     }
     
+    private var direction: NSLayoutConstraint.Axis = .horizontal
+    
     private lazy var textField: LUITextField = {
         let field = LUITextField(paddingType: .regular, fontSize: .regular, textFontStyle: .regular, placeholderFontStyle: .italics)
         field.borderStyle = .roundedRect
@@ -43,40 +45,60 @@ class RMTextField: LUIView {
     } ()
     
     private lazy var subtitleLabel: LUILabel = {
-        let label = LUILabel(color: .intermidiateText, fontSize: .regular, fontStyle: .bold)
+        let label = LUILabel(color: .theme, fontSize: .regular, fontStyle: .bold)
         return label
     } ()
 
     private lazy var fieldStack: LUIStackView = {
-        let stack = LUIStackView(padding: .regular)
+        let stack = LUIStackView(padding: .none)
         
         self.subtitleLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         self.textField.setContentHuggingPriority(.defaultLow, for: .horizontal)
         
-        stack.addArrangedSubview(contentViews: [self.subtitleLabel, self.textField], fill: true, direction: .horizontal, distribution: UIStackView.Distribution.fill)
+        if self.direction == .horizontal {
+            stack.addArrangedSubview(contentViews: [self.subtitleLabel, self.textField], fill: true, direction: self.direction, distribution: UIStackView.Distribution.fill)
+        } else {
+            
+            stack.addArrangedSubview(contentViews: [self.subtitleLabel, self.textField], fill: true, direction: self.direction, distribution: .fill, alignment: .fill)
+        }
         
-        stack.height(to: self.subtitleLabel.heightAnchor, constraintOperator: .greaterThan)
-        stack.height(to: self.textField.heightAnchor, constraintOperator: .greaterThan)
         return stack
     } ()
     
-    convenience init() {
+    required convenience init(direction: NSLayoutConstraint.Axis = .horizontal) {
         self.init(frame: .zero)
+        self.direction = direction
+        self.setUpView()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        self.setUpView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let minFieldFrame: CGFloat = 73.0 // fixed variable dependent on padding of stack view
+        if self.direction == .horizontal {
+            self.fieldStack.height(to: self.subtitleLabel.heightAnchor, constraintOperator: .greaterThan)
+            self.fieldStack.height(to: self.textField.heightAnchor, constraintOperator: .greaterThan)
+        } else {
+            self.fieldStack.height(to: minFieldFrame, constraintOperator: .greaterThan)
+        }
+        
+    }
+    
     func setUpView() {
+        self.backgroundColor = .clear
         self.addSubview(self.fieldStack)
         self.fill(self.fieldStack, padding: .none)
+        self.field.clipsToBounds = false
+        self.fieldStack.clipsToBounds = false
+        self.clipsToBounds = false
     }
     
 }

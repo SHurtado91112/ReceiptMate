@@ -8,4 +8,10 @@ target 'ReceiptMate' do
   # Pods for ReceiptMate
   pod "WSTagsField"
   pod "SearchTextField"
+  
+  # Firebase
+  pod "Firebase/Core"
+  pod "Firebase/Auth"
+  pod "Firebase/Firestore"
+  pod "Firebase/Storage"
 end
