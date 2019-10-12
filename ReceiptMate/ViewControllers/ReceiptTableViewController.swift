@@ -17,13 +17,15 @@ class ReceiptTableViewController: LUITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.searchBarAppear(false)
-
+        self.unregisterForObservers()
         super.viewWillDisappear(animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.searchBarAppear(true)
+        
+        self.registerForObservers()
     }
     
     func searchBarAppear(_ appeared: Bool) {
@@ -34,13 +36,27 @@ class ReceiptTableViewController: LUITableViewController {
         }
     }
     
+    private func registerForObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.changeRegistered), name: Notification.Name.RMReceiptAdded, object: nil)
+    }
+    
+    private func unregisterForObservers() {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.RMReceiptAdded, object: nil)
+    }
+    
     override func setUpViews() {
         super.setUpViews()
         
         self.title = "Receipt Mate"
         
+        let moreBtn = LUIButton(style: .none, affirmation: false, negation: false, raised: false, paddingType: .none, fontSize: .regular, textFontStyle: .regular)
+        moreBtn.image = UIImage(named: Assets.moreIcon)?.template
+        moreBtn.square(to: Constants.ICON_SIZE)
+        moreBtn.onClick(sender: self, selector: #selector(self.presentMoreOptions))
+        
         let rightItems: [UIBarButtonItem] = [
-            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addReceipt))
+            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addReceipt)),
+            UIBarButtonItem(customView: moreBtn)
         ]
         self.navigationItem.setRightBarButtonItems(rightItems, animated: false)
         
@@ -95,33 +111,54 @@ class ReceiptTableViewController: LUITableViewController {
         var storeMap : [String : Store] = [:]
         
         self.receipts = []
+        self.stores = []
         
-        for dict in Testing.receiptJSON {
-            let receipt = Receipt(dict: dict)
-            let storeName = receipt.storeName ?? ""
-            self.receipts.append(receipt)
-            
-            var store : Store?
-            if (storeMap.index(forKey: storeName) != nil) {
-                store = storeMap[storeName]
-            } else {
-                store = Store(name: storeName, brandUrl: nil)
-                guard let store = store else { return }
-                storeMap[storeName] = store
-                self.stores.append(store)
-            }
-            
-            store?.receipts.append(receipt)
-            
-            if let url = Store.storeUrls[storeName] {
-                UIImage.image(for: url, completion: { (image, error) in
-                    if let error = error {
-                        print(error.localizedDescription)
-                    } else {
-                        store?.brand = image
-                        self.tableView.reloadData()
+        LUIActivityIndicatorView.shared.present(withStyle: .large, from: self)
+        
+        // get receipt for user
+        if let userId = RMUser.shared?.uid {
+            RMAPI.Database.getReceipts(forUser: userId) { (receipts, errorMessage) in
+                
+                LUIActivityIndicatorView.shared.dismiss()
+                
+                if let errorMessage = errorMessage {
+                    UIAlertController.presentAlert(title: "Sorry", message: errorMessage, actionText: "Okay", viewController: self)
+                } else if let receipts = receipts {
+                    for receipt in receipts {
+                        receipt.delegate = self
+                        
+                        let storeName = receipt.storeName ?? ""
+                        self.receipts.append(receipt)
+                        
+                        var store : Store?
+                        if (storeMap.index(forKey: storeName) != nil) {
+                            store = storeMap[storeName]
+                        } else {
+                            store = Store(name: storeName, brandUrl: nil)
+                            guard let store = store else { return }
+                            storeMap[storeName] = store
+                            self.stores.append(store)
+                        }
+                        
+                        store?.receipts.append(receipt)
+                        
+                        if let url = Store.storeUrls[storeName] {
+                            UIImage.image(for: url, completion: { (image, error) in
+                                if let error = error {
+                                    print(error.localizedDescription)
+                                } else {
+                                    store?.brand = image
+                                    self.tableView.reloadData()
+                                }
+                            })
+                        }
                     }
-                })
+                   
+                    self.receipts.sort { $0.date! < $1.date! }
+                    self.stores.sort { $0.name! < $1.name! }
+                    
+                    self.rowData = self.stores
+                }
             }
         }
         
@@ -129,11 +166,6 @@ class ReceiptTableViewController: LUITableViewController {
             "By Store", "By Receipt"
         ]
         self.delegate = self
-        
-        self.receipts.sort { $0.date! < $1.date! }
-        self.stores.sort { $0.name! < $1.name! }
-        
-        self.rowData = self.stores
     }
     
     override open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -142,10 +174,10 @@ class ReceiptTableViewController: LUITableViewController {
         let width = self.view.frame.width
         let padding = LUIPaddingManager.shared.padding(for: .regular)
         
-        let footerBlocker = LUIView(frame: CGRect(x: 0, y: 0, width: width, height: padding + safetyInsets))
+        let footerBlocker = UIView(frame: CGRect(x: 0, y: 0, width: width, height: padding + safetyInsets))
         footerBlocker.backgroundColor = self.view.backgroundColor
         
-        let footer = LUIView(frame: CGRect(x: 0, y: 0, width: width, height: padding))
+        let footer = UIView(frame: CGRect(x: 0, y: 0, width: width, height: padding))
         footer.backgroundColor = UIColor.color(for: .theme)
         footerBlocker.addSubview(footer)
         
@@ -175,6 +207,34 @@ class ReceiptTableViewController: LUITableViewController {
     // MARK: - Selectors
     @objc private func changeRegistered() {
         self.loadData()
+    }
+    
+    @objc private func presentMoreOptions() {
+        let moreOptionsVC = MoreOptionsViewController(optionData: [
+            MoreOptionsData(iconName: Assets.signOutIcon, optionText: "Sign me out", action: {
+                LUIPopOverViewController.current?.dismiss()
+                self.signOutRequested()
+                
+            }),
+            MoreOptionsData(iconName: Assets.aboutIcon, optionText: "About this app", action: {
+                LUIPopOverViewController.current?.dismiss()
+                self.push(to: AboutViewController())
+            }),
+        ])
+        
+        self.popOver(moreOptionsVC)
+    }
+    
+    private func signOutRequested() {
+        UIAlertController.presentActionSheet(title: "Signing out?", message: "If you want to sign out of Receipt Mate, please continue.", withOptions: [
+            UIAlertAction(title: "Sign out", style: .destructive, handler: { (action) in
+                
+                RMAPI.Authentication.signOut()
+//                self.dismiss(animated: true, completion: nil)
+                
+            }),
+            UIAlertAction(title: "Nevermind", style: .cancel, handler: nil)
+        ], viewController: self)
     }
     
     @objc private func addReceipt() {
@@ -256,5 +316,11 @@ extension ReceiptTableViewController: LUIPreviewDelegate {
     
     func dismissedPreview() {
         self.viewDidAppear(true) // TODO: check if this is okay to do
+    }
+}
+
+extension ReceiptTableViewController: ReceiptDelegate {
+    func imageUpdated() {
+        self.tableView.reloadData()
     }
 }

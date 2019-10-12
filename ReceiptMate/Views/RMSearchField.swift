@@ -62,7 +62,7 @@ class RMSearchField: LUIView {
     }
     
     private lazy var textField: _RMSearchTextField = {
-        let field = _RMSearchTextField(frame: CGRect(x: 10, y: 100, width: 200, height: 40))
+        let field = _RMSearchTextField(frame: CGRect.zero)
         
         field.autocorrectionType = .no
         field.autocapitalizationType = .none

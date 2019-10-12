@@ -15,11 +15,14 @@
 		CD04306C22DC3B9F0018D584 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD04306A22DC3B9F0018D584 /* LaunchScreen.storyboard */; };
 		CD04308122DC42110018D584 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD04308022DC42110018D584 /* Constants.swift */; };
 		CD04308322DC47100018D584 /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD04308222DC47100018D584 /* ReceiptTableViewController.swift */; };
-		CD0E62A62316C357001F4498 /* LazyUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0E62A42316C28E001F4498 /* LazyUI.framework */; };
+		CD17B5A3234D55CA00FA7FDD /* RMUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17B5A2234D55CA00FA7FDD /* RMUser.swift */; };
+		CD17B5AE234E581800FA7FDD /* MoreOptionsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17B5AD234E581800FA7FDD /* MoreOptionsData.swift */; };
+		CD17B5BA2350F80600FA7FDD /* MoreOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17B5B92350F80600FA7FDD /* MoreOptionsView.swift */; };
+		CD17B5BC2350F87800FA7FDD /* MoreOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17B5BB2350F87800FA7FDD /* MoreOptionsViewController.swift */; };
 		CD8607222331A94A0028542E /* RMDateField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8607212331A94A0028542E /* RMDateField.swift */; };
 		CDA48BA423130DD800CC8B09 /* StoreReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA48BA323130DD800CC8B09 /* StoreReceiptTableViewController.swift */; };
 		CDA5F82523341C8B005C915E /* RMSearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5F82423341C8B005C915E /* RMSearchField.swift */; };
-		CDA5F82923342953005C915E /* RmAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5F82823342953005C915E /* RmAPI.swift */; };
+		CDA5F82923342953005C915E /* RMAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5F82823342953005C915E /* RMAPI.swift */; };
 		CDA5F82C23342E19005C915E /* RMLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5F82B23342E19005C915E /* RMLoginView.swift */; };
 		CDA5F82F233432A3005C915E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDA5F82E233432A3005C915E /* GoogleService-Info.plist */; };
 		CDB4F7FD231DEA7F002244E9 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB4F7FC231DEA7F002244E9 /* Assets.swift */; };
@@ -31,6 +34,10 @@
 		CDD437A322E4C10D003A5A4B /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD437A222E4C10D003A5A4B /* Cache.swift */; };
 		CDD437A522E4C164003A5A4B /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD437A422E4C164003A5A4B /* UIImageExtensions.swift */; };
 		CDD437A722E4CBFE003A5A4B /* ReceiptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD437A622E4CBFE003A5A4B /* ReceiptCell.swift */; };
+		CDE034B12351317C004287E9 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE034B02351317C004287E9 /* AboutViewController.swift */; };
+		CDE034B323514511004287E9 /* AdvancedPhotoCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE034B223514511004287E9 /* AdvancedPhotoCaptureViewController.swift */; };
+		CDE034B6235183EA004287E9 /* LazyUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0E62A42316C28E001F4498 /* LazyUI.framework */; };
+		CDE034B7235183EA004287E9 /* LazyUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CD0E62A42316C28E001F4498 /* LazyUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +46,13 @@
 			containerPortal = CD0E629F2316C28E001F4498 /* LazyUI.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = CD3A59EC22CEE80B009AD5BC;
+			remoteInfo = LazyUI;
+		};
+		CDE034B8235183EA004287E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD0E629F2316C28E001F4498 /* LazyUI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CD3A59EB22CEE80B009AD5BC;
 			remoteInfo = LazyUI;
 		};
 /* End PBXContainerItemProxy section */
@@ -50,6 +64,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				CDE034B7235183EA004287E9 /* LazyUI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,10 +84,14 @@
 		CD04308022DC42110018D584 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CD04308222DC47100018D584 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewController.swift; sourceTree = "<group>"; };
 		CD0E629F2316C28E001F4498 /* LazyUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LazyUI.xcodeproj; path = Support/LazyUI.xcodeproj; sourceTree = "<group>"; };
+		CD17B5A2234D55CA00FA7FDD /* RMUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMUser.swift; sourceTree = "<group>"; };
+		CD17B5AD234E581800FA7FDD /* MoreOptionsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionsData.swift; sourceTree = "<group>"; };
+		CD17B5B92350F80600FA7FDD /* MoreOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionsView.swift; sourceTree = "<group>"; };
+		CD17B5BB2350F87800FA7FDD /* MoreOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionsViewController.swift; sourceTree = "<group>"; };
 		CD8607212331A94A0028542E /* RMDateField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMDateField.swift; sourceTree = "<group>"; };
 		CDA48BA323130DD800CC8B09 /* StoreReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReceiptTableViewController.swift; sourceTree = "<group>"; };
 		CDA5F82423341C8B005C915E /* RMSearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSearchField.swift; sourceTree = "<group>"; };
-		CDA5F82823342953005C915E /* RmAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RmAPI.swift; sourceTree = "<group>"; };
+		CDA5F82823342953005C915E /* RMAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMAPI.swift; sourceTree = "<group>"; };
 		CDA5F82B23342E19005C915E /* RMLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMLoginView.swift; sourceTree = "<group>"; };
 		CDA5F82E233432A3005C915E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CDB4F7FC231DEA7F002244E9 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
@@ -84,6 +103,8 @@
 		CDD437A222E4C10D003A5A4B /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		CDD437A422E4C164003A5A4B /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		CDD437A622E4CBFE003A5A4B /* ReceiptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCell.swift; sourceTree = "<group>"; };
+		CDE034B02351317C004287E9 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		CDE034B223514511004287E9 /* AdvancedPhotoCaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedPhotoCaptureViewController.swift; sourceTree = "<group>"; };
 		F72A9A61DA96E66B280FD072 /* Pods-ReceiptMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiptMate.debug.xcconfig"; path = "Target Support Files/Pods-ReceiptMate/Pods-ReceiptMate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,7 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD0E62A62316C357001F4498 /* LazyUI.framework in Frameworks */,
+				CDE034B6235183EA004287E9 /* LazyUI.framework in Frameworks */,
 				704AE4E64846229BBF618C8D /* Pods_ReceiptMate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +181,9 @@
 				CD04308222DC47100018D584 /* ReceiptTableViewController.swift */,
 				CDA48BA323130DD800CC8B09 /* StoreReceiptTableViewController.swift */,
 				CDB4F801231DFF0E002244E9 /* AddReceiptViewController.swift */,
+				CD17B5BB2350F87800FA7FDD /* MoreOptionsViewController.swift */,
+				CDE034B02351317C004287E9 /* AboutViewController.swift */,
+				CDE034B223514511004287E9 /* AdvancedPhotoCaptureViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -182,6 +206,7 @@
 				CD04308522DC47170018D584 /* Cells */,
 				CDB4F804231E04B4002244E9 /* RMTextField.swift */,
 				CD8607212331A94A0028542E /* RMDateField.swift */,
+				CD17B5B92350F80600FA7FDD /* MoreOptionsView.swift */,
 				CDA5F82423341C8B005C915E /* RMSearchField.swift */,
 				CDA5F82B23342E19005C915E /* RMLoginView.swift */,
 			);
@@ -208,7 +233,7 @@
 		CDA5F82723342941005C915E /* API */ = {
 			isa = PBXGroup;
 			children = (
-				CDA5F82823342953005C915E /* RmAPI.swift */,
+				CDA5F82823342953005C915E /* RMAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -217,7 +242,9 @@
 			isa = PBXGroup;
 			children = (
 				CDD4379E22DD8CC8003A5A4B /* Store.swift */,
+				CD17B5AD234E581800FA7FDD /* MoreOptionsData.swift */,
 				CDD437A022DD9005003A5A4B /* Receipt.swift */,
+				CD17B5A2234D55CA00FA7FDD /* RMUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -239,6 +266,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				CDE034B9235183EA004287E9 /* PBXTargetDependency */,
 			);
 			name = ReceiptMate;
 			productName = ReceiptMate;
@@ -356,11 +384,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD8607222331A94A0028542E /* RMDateField.swift in Sources */,
+				CD17B5AE234E581800FA7FDD /* MoreOptionsData.swift in Sources */,
 				CDD437A522E4C164003A5A4B /* UIImageExtensions.swift in Sources */,
 				CD04308322DC47100018D584 /* ReceiptTableViewController.swift in Sources */,
 				CDB4F7FD231DEA7F002244E9 /* Assets.swift in Sources */,
+				CD17B5BA2350F80600FA7FDD /* MoreOptionsView.swift in Sources */,
+				CDE034B323514511004287E9 /* AdvancedPhotoCaptureViewController.swift in Sources */,
 				CDD4379C22DCD6C3003A5A4B /* StoreCell.swift in Sources */,
 				CDB4F802231DFF0E002244E9 /* AddReceiptViewController.swift in Sources */,
+				CD17B5A3234D55CA00FA7FDD /* RMUser.swift in Sources */,
 				CDD437A322E4C10D003A5A4B /* Cache.swift in Sources */,
 				CDA5F82523341C8B005C915E /* RMSearchField.swift in Sources */,
 				CDB4F805231E04B4002244E9 /* RMTextField.swift in Sources */,
@@ -370,13 +402,23 @@
 				CD04306422DC3B9D0018D584 /* LoginViewController.swift in Sources */,
 				CDD4379F22DD8CC8003A5A4B /* Store.swift in Sources */,
 				CD04306222DC3B9D0018D584 /* AppDelegate.swift in Sources */,
-				CDA5F82923342953005C915E /* RmAPI.swift in Sources */,
+				CDA5F82923342953005C915E /* RMAPI.swift in Sources */,
+				CD17B5BC2350F87800FA7FDD /* MoreOptionsViewController.swift in Sources */,
 				CD04308122DC42110018D584 /* Constants.swift in Sources */,
 				CDA48BA423130DD800CC8B09 /* StoreReceiptTableViewController.swift in Sources */,
+				CDE034B12351317C004287E9 /* AboutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CDE034B9235183EA004287E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LazyUI;
+			targetProxy = CDE034B8235183EA004287E9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CD04306522DC3B9D0018D584 /* Main.storyboard */ = {

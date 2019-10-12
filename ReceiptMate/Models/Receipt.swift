@@ -9,32 +9,56 @@
 import Foundation
 import UIKit
 
+protocol ReceiptDelegate {
+    func imageUpdated()
+}
+
 class Receipt : NSObject {
     
-    var storeName : String?
-    var date : Date?
-    var receiptImage : UIImage?
-    var tags : [String] = []
+    struct Keys {
+        static let userId = "user_id"
+        static let date = "date"
+        static let imgUrl = "img_url"
+        static let store = "store"
+        static let tags = "tags"
+    }
+    
+    var delegate: ReceiptDelegate?
+    var userId: String?
+    var storeName: String?
+    var date: Date?
+    var receiptImage: UIImage?
+    var tags: [String] = []
     
     init(dict: [String : Any]) {
+        super.init()
         
-        if let storeName = dict["store"] as? String {
+        if let userId = dict[Keys.userId] as? String {
+            self.userId = userId
+        }
+        
+        if let storeName = dict[Keys.store] as? String {
             self.storeName = storeName
         }
         
-        if let dateString = dict["date"] as? String {
+        if let dateString = dict[Keys.date] as? String {
             let df = DateFormatter()
             df.dateStyle = .medium
             self.date = df.date(from: dateString)
         }
         
-//        self.receiptImage = UIImage(named: "receipt_sample")
-        if let receiptImageUrl = dict["img_url"] as? String {
+        if let receiptImageUrl = dict[Keys.imgUrl] as? String {
             
             // get img from url
+            RMAPI.Storage.getImage(forUrl: receiptImageUrl) { (image) in
+                if let image = image {
+                    self.receiptImage = image
+                    self.delegate?.imageUpdated()
+                }
+            }
         }
         
-        if let tags = dict["tags"] as? [String] {
+        if let tags = dict[Keys.tags] as? [String] {
             for tag in tags {
                 self.tags.append(tag)
             }

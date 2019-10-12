@@ -11,7 +11,6 @@ import LazyUI
 
 class StoreReceiptTableViewController: LUITableViewController {
 
-    private let iconSize: CGFloat = 30.0
     var store: Store? {
         didSet {
             if let store = self.store {
@@ -36,8 +35,8 @@ class StoreReceiptTableViewController: LUITableViewController {
         if let brand = self.store?.brand {
             let brandImageView = UIImageView(image: brand)
             brandImageView.contentMode = .scaleAspectFit
-            brandImageView.width(to: self.iconSize)
-            brandImageView.height(to: self.iconSize)
+            brandImageView.width(to: Constants.ICON_SIZE)
+            brandImageView.height(to: Constants.ICON_SIZE)
             
             let item = UIBarButtonItem(customView: brandImageView)
             self.navigationItem.rightBarButtonItems = [item]
@@ -55,10 +54,10 @@ class StoreReceiptTableViewController: LUITableViewController {
         let width = self.view.frame.width
         let padding = LUIPaddingManager.shared.padding(for: .regular)
         
-        let footerBlocker = LUIView(frame: CGRect(x: 0, y: 0, width: width, height: padding + safetyInsets))
+        let footerBlocker = UIView(frame: CGRect(x: 0, y: 0, width: width, height: padding + safetyInsets))
         footerBlocker.backgroundColor = self.view.backgroundColor
         
-        let footer = LUIView(frame: CGRect(x: 0, y: 0, width: width, height: padding))
+        let footer = UIView(frame: CGRect(x: 0, y: 0, width: width, height: padding))
         footer.backgroundColor = UIColor.color(for: .theme)
         footerBlocker.addSubview(footer)
         

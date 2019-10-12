@@ -10,6 +10,10 @@ import UIKit
 import LazyUI
 import WSTagsField
 
+extension Notification.Name {
+    static let RMReceiptAdded = Notification.Name(rawValue: "RM_RECEIPT_ADDED_NOTIFICATION")
+}
+
 class AddReceiptViewController: LUIViewController {
     
     
@@ -39,7 +43,7 @@ class AddReceiptViewController: LUIViewController {
     } ()
     
     private lazy var dateField: RMDateField = {
-        let field = RMDateField()
+        let field = RMDateField(direction: .horizontal)
         field.subtitle = "Date"
         field.placeholder = "Jun 7, 2019"
         field.dateStyle = .medium
@@ -71,11 +75,6 @@ class AddReceiptViewController: LUIViewController {
         tv.acceptTagOption = .return
         tv.cornerRadius = Constants.ROUNDED_CORNER_CONSTANT
         tv.layer.cornerRadius = Constants.ROUNDED_CORNER_CONSTANT
-        
-//        let toolbar = LUIKeyboardToolBar()
-//        tv.inputFieldAccessoryView = toolbar
-//        toolbar.keyboardDelegate = self
-//
         tv.height(to: 48.0, constraintOperator: .greaterThan)
         return tv
     } ()
@@ -120,8 +119,8 @@ class AddReceiptViewController: LUIViewController {
         return btn
     } ()
     
-    private lazy var receiptImageContainer: LUIView = {
-        let view = LUIView()
+    private lazy var receiptImageContainer: UIView = {
+        let view = UIView()
         view.backgroundColor = .clear
         
         let label = LUILabel(color: .darkText, fontSize: .regular, fontStyle: .regular)
@@ -153,6 +152,17 @@ class AddReceiptViewController: LUIViewController {
         
         btn.text = "Upload receipt photo"
         btn.onClick(sender: self, selector: #selector(self.requestUpload))
+        
+        return btn
+    } ()
+    
+    private lazy var advancedCaptureBtn: LUIButton = {
+        let btn = LUIButton(style: .outlined, affirmation: false, negation: false, raised: false, paddingType: .regular, fontSize: .small, textFontStyle: .italics)
+        btn.roundCorners(to: Constants.ROUNDED_CORNER_CONSTANT)
+        
+        btn.text = "Advanced photo capture"
+        btn.onClick(sender: self, selector: #selector(self.requestAdvancedCapture))
+        btn.isHidden = true
         
         return btn
     } ()
@@ -189,6 +199,7 @@ class AddReceiptViewController: LUIViewController {
         self.contentView.addArrangedSubview(contentView: self.photoSubtitleLabel, fill: true)
         self.contentView.addArrangedSubview(contentView: self.receiptImageContainer, fill: true)
         self.contentView.addArrangedSubview(contentView: self.uploadBtn, fill:true)
+        self.contentView.addArrangedSubview(contentView: self.advancedCaptureBtn, fill: true)
         self.contentView.addPadding(.regular)
         self.contentView.addArrangedSubview(contentView: self.submitBtn, fill: true)
         self.contentView.addPadding(.large)
@@ -218,10 +229,11 @@ class AddReceiptViewController: LUIViewController {
     // MARK: - Private functions
     
     private func registerEvents() {
-        
         // Registering for text field notification.
         let DidEndEditing = UITextField.textDidEndEditingNotification
         NotificationCenter.default.addObserver(self, selector: #selector(self.canSubmit), name: DidEndEditing, object: nil)
+        
+        self.advancedCaptureBtn.isHidden = !UIImagePickerController.isSourceTypeAvailable(.camera)
         
     }
     
@@ -234,6 +246,22 @@ class AddReceiptViewController: LUIViewController {
     }
     
     // MARK: - Selectors
+    
+    var receipt: Receipt? {
+        
+        let receipt = Receipt(dict: [:])
+        receipt.storeName = self.storeField.text
+        receipt.date = self.dateField.date
+        
+        receipt.tags = []
+        for tag in self.tagField.tags {
+            receipt.tags.append(tag.text)
+        }
+        
+        receipt.receiptImage = self.receiptImage
+        
+        return receipt
+    }
     
     @objc private func canSubmit() {
         
@@ -252,6 +280,10 @@ class AddReceiptViewController: LUIViewController {
         self.imagePicker?.present(from: sender)
     }
     
+    @objc private func requestAdvancedCapture(_ sender: LUIButton) {
+        
+    }
+    
     @objc private func previewImage(_ sender: UIImageView) {
         if let receiptImage = self.receiptImage {
             self.previewer.previewContent = [receiptImage]
@@ -262,33 +294,36 @@ class AddReceiptViewController: LUIViewController {
     
     @objc private func submitReceipt() {
         
+        if let receipt = self.receipt {
+            
+            LUIActivityIndicatorView.shared.present(withStyle: .full, from: self)
+            RMAPI.Database.createReceipt(receipt) { (success, errorString) in
+                LUIActivityIndicatorView.shared.dismiss()
+                
+                if success {
+                    
+                    UIAlertController.presentAlertWithOptions(title: "Nice!", message: "We got your receipt uploaded. We'll take good care of it.", options: [
+                        UIAlertAction(title: "Woohoo!", style: .default, handler: { (action) in
+                            
+                            self.dismiss(animated: true, completion: {
+                                NotificationCenter.default.post(name: Notification.Name.RMReceiptAdded, object: nil)
+                            })
+                            
+                        })
+                    ], viewController: self)
+                    
+                } else {
+                    
+                    UIAlertController.presentAlert(title: "Uh oh...", message: errorString ?? "Something went wrong...", actionText: "/:", viewController: self)
+                    
+                }
+                
+            }
+            
+        }
+        
     }
 }
-//
-//// KNOWN TO APPLY TO ONLY WSTagsField
-//extension AddReceiptViewController: LUIKeyboardToolBarDelegate {
-//
-//    func dismissRequested() {
-//        self.view.endEditing(true)
-//    }
-//
-//    func canGoToPrevious() -> Bool {
-//        return true
-//    }
-//
-//    func canGoToNext() -> Bool {
-//        return false
-//    }
-//
-//    func previousFieldRequested() {
-//        //
-//    }
-//
-//    func nextFieldRequested() {
-//        //
-//    }
-//
-//}
 
 extension AddReceiptViewController: LUIImagePickerDelegate {
     

@@ -133,7 +133,7 @@ class RMLoginView: LUIView {
         super.init(coder: aDecoder)
     }
     
-    private func setUpView() {
+    internal func setUpView() {
         
         self.addSubview(self.fieldContentView)
         self.fieldContentView.addArrangedSubview(contentView: self.statusLabel, fill: true)

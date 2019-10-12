@@ -8,9 +8,15 @@
 
 import UIKit
 import LazyUI
+import FirebaseAuth
+
+fileprivate protocol _RMLoginDelegate {
+    func authenticatedUser()
+}
 
 fileprivate class _RMLoginViewController: LUIViewController, RMLoginViewDelegate {
     
+    var delegate: _RMLoginDelegate?
     var forLogin: Bool = false {
         didSet {
             self.title = self.forLogin ? "Log In" : "Create Account"
@@ -31,21 +37,18 @@ fileprivate class _RMLoginViewController: LUIViewController, RMLoginViewDelegate
         
     }
     
-    private func goToHomePage() {
-        let receiptTableVC = ReceiptTableViewController(cellType: StoreCell.self, cellIdentifier: StoreCell.identifier)
-        self.present(LUINavigationViewController(rootVC: receiptTableVC))
-    }
-    
     // MARK: - RMLoginViewDelegate
     
     func basicValidationPassedForUser(email: String, password: String, signingUp: Bool) {
         
         if signingUp {
             
-            RmAPI.Authentication.signUpUserFor(email: email, password: password) { (success, errMessage) in
+            LUIActivityIndicatorView.shared.present(withStyle: .small, from: self)
+            RMAPI.Authentication.signUpUserFor(email: email, password: password) { (success, errMessage) in
+                LUIActivityIndicatorView.shared.dismiss()
                 
                 if success {
-                    self.goToHomePage()
+                    self.delegate?.authenticatedUser()
                 } else {
                     UIAlertController.presentAlert(title: "Something went wrong", message: errMessage ?? "", viewController: self)
                 }
@@ -54,10 +57,12 @@ fileprivate class _RMLoginViewController: LUIViewController, RMLoginViewDelegate
             
         } else {
             
-            RmAPI.Authentication.logInUserFor(email: email, password: password) { (success, errMessage) in
+            LUIActivityIndicatorView.shared.present(withStyle: .small, from: self)
+            RMAPI.Authentication.logInUserFor(email: email, password: password) { (success, errMessage) in
+                LUIActivityIndicatorView.shared.dismiss()
                 
                 if success {
-                    self.goToHomePage()
+                    self.delegate?.authenticatedUser()
                 } else {
                     UIAlertController.presentAlert(title: "Something went wrong", message: errMessage ?? "", viewController: self)
                 }
@@ -123,6 +128,29 @@ class LoginViewController: LUIViewController {
         self.navigation?.setNavigationBarHidden(true, animated: true)
     }
     
+    var authStateHandler: AuthStateDidChangeListenerHandle?
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.authStateHandler = Auth.auth().addStateDidChangeListener({ (auth, user) in
+            
+            if user != nil {
+                // User is signed in.
+                // ...
+                print("User, \(user?.email ?? ""), signed in.")
+                RMUser.setSharedUser(user)
+                self.goToHomePage()
+            } else {
+                // No user is signed in.
+                // ...
+                if let presentedVC = self.presentedViewController {
+                    self.popToRoot()
+                    presentedVC.dismiss(animated: true, completion: nil)
+                }
+            }
+        })
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         self.navigation?.setNavigationBarHidden(false, animated: true)
         
@@ -139,18 +167,31 @@ class LoginViewController: LUIViewController {
         
         self.signUpButton.text = "New here?"
         self.signUpButton.onClick(sender: self, selector: #selector(self.signUp))
+        
     }
     
     @objc private func login() {
         let logInViewController = _RMLoginViewController()
+        logInViewController.delegate = self
         logInViewController.forLogin = true
         self.push(to: logInViewController)
     }
     
     @objc private func signUp() {
         let signUpViewController = _RMLoginViewController()
+        signUpViewController.delegate = self
         signUpViewController.forLogin = false
         self.push(to: signUpViewController)
     }
 
+    private func goToHomePage() {
+        let receiptTableVC = ReceiptTableViewController(cellType: StoreCell.self, cellIdentifier: StoreCell.identifier)
+        self.present(LUINavigationViewController(rootVC: receiptTableVC))
+    }
+}
+
+extension LoginViewController: _RMLoginDelegate {
+    func authenticatedUser() {
+        print("User Authenticated")
+    }
 }

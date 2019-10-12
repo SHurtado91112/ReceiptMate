@@ -14,12 +14,14 @@ class RMTextField: LUIView {
     var subtitle: String = "" {
         didSet {
             self.subtitleLabel.text = self.subtitle
+            self.subtitleLabel.sizeToFit()
         }
     }
     
     var placeholder: String = "" {
         didSet {
             self.textField.placeholder = self.placeholder
+            self.textField.sizeToFit()
         }
     }
     
@@ -29,6 +31,7 @@ class RMTextField: LUIView {
         }
         set {
             self.textField.text = newValue
+            self.textField.sizeToFit()
         }
     }
     
@@ -50,22 +53,23 @@ class RMTextField: LUIView {
     } ()
 
     private lazy var fieldStack: LUIStackView = {
-        let stack = LUIStackView(padding: .none)
-        
         self.subtitleLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         self.textField.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        
+        var stack: LUIStackView?
         if self.direction == .horizontal {
-            stack.addArrangedSubview(contentViews: [self.subtitleLabel, self.textField], fill: true, direction: self.direction, distribution: UIStackView.Distribution.fill)
-        } else {
+            stack = LUIStackView(padding: .regular)
             
-            stack.addArrangedSubview(contentViews: [self.subtitleLabel, self.textField], fill: true, direction: self.direction, distribution: .fill, alignment: .fill)
+            stack?.addArrangedSubview(contentViews: [self.subtitleLabel, self.textField], fill: true, direction: .horizontal, distribution: UIStackView.Distribution.fill)
+        } else {
+            stack = LUIStackView(padding: .none)
+            
+            stack?.addArrangedSubview(contentViews: [self.subtitleLabel, self.textField], fill: true, direction: self.direction, distribution: .fill, alignment: .fill)
         }
         
-        return stack
+        return stack ?? LUIStackView(padding: .none)
     } ()
     
-    required convenience init(direction: NSLayoutConstraint.Axis = .horizontal) {
+    required convenience init(direction: NSLayoutConstraint.Axis) {
         self.init(frame: .zero)
         self.direction = direction
         self.setUpView()

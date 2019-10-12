@@ -11,7 +11,7 @@ import Firebase
 
 typealias RmSuccessCompletion = (Bool, String?) -> Void
 
-class RmAPI {
+class RMAPI {
     
     class Authentication {
         
@@ -74,6 +74,15 @@ class RmAPI {
                     completion(true, nil)
                 }
                 
+            }
+        }
+        
+        static func signOut() {
+            do {
+                try Auth.auth().signOut()
+            }
+            catch let e {
+                print("Error: \(e.localizedDescription)")
             }
         }
         

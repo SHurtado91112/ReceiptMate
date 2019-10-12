@@ -31,10 +31,8 @@ class Store : NSObject {
     var receipts : [Receipt] = []
     
     init(name: String?, brandUrl: String?) {
-        self.name = name
+        super.init()
         
-        if let brandUrl = brandUrl {
-            // get that brand photo
-        }
+        self.name = name
     }
 }

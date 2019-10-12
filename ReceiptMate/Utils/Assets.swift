@@ -8,6 +8,13 @@
 
 import Foundation
 
+class Assets {
+    static let receiptIcon = "receipt_icon"
+    static let moreIcon = "more_icon"
+    static let aboutIcon = "about_icon"
+    static let signOutIcon = "sign_out_icon"
+}
+
 class Testing {
     
     static let receiptJSON: [[String : Any]] = [

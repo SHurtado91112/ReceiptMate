@@ -40,4 +40,17 @@ extension UIImage {
             }).resume()
         }
     }
+    
+    func jpegReduced(to megabytes: Int64) -> Data {
+        var quality: CGFloat = 1.0
+        var data: Data?
+        
+        repeat {
+            data = self.jpegData(compressionQuality: quality)
+            quality = quality - 0.1
+        }
+        while(Int64(data?.count ?? -1) > megabytes)
+        
+        return data ?? Data()
+    }
 }
