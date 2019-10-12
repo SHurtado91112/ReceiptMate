@@ -281,7 +281,9 @@ class AddReceiptViewController: LUIViewController {
     }
     
     @objc private func requestAdvancedCapture(_ sender: LUIButton) {
-        
+        let advancedVC = AdvancedPhotoCaptureViewController()
+        advancedVC.delegate = self
+        self.present(advancedVC.dismissableModalViewController())
     }
     
     @objc private func previewImage(_ sender: UIImageView) {
