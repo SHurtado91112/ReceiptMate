@@ -21,10 +21,9 @@ class AdvancedPhotoCaptureViewController: LUIViewController {
     }
     private var picker: LUIImagePicker?
     
-    private lazy var dotOverlayView: UIView = {
-        let view = UIView()
+    private lazy var dotOverlayView: DotOverlayView = {
+        let view = DotOverlayView()
         view.isHidden = true
-        view.backgroundColor = UIColor.color(for: .shadow)
         return view
     } ()
     
@@ -52,7 +51,7 @@ class AdvancedPhotoCaptureViewController: LUIViewController {
         self.view.right(self.contentView, fromLeft: false, paddingType: .none, withSafety: false)
         
         self.addView(self.dotOverlayView)
-        self.fill(self.dotOverlayView)
+        self.contentView.fill(self.dotOverlayView, padding: .none)
         
         self.addView(self.addImageBtn)
         self.centerX(self.addImageBtn)

@@ -38,6 +38,7 @@
 		CDE034B323514511004287E9 /* AdvancedPhotoCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE034B223514511004287E9 /* AdvancedPhotoCaptureViewController.swift */; };
 		CDE034B6235183EA004287E9 /* LazyUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0E62A42316C28E001F4498 /* LazyUI.framework */; };
 		CDE034B7235183EA004287E9 /* LazyUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CD0E62A42316C28E001F4498 /* LazyUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CDE034BC23523623004287E9 /* DotOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE034BB23523623004287E9 /* DotOverlayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		CDD437A622E4CBFE003A5A4B /* ReceiptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCell.swift; sourceTree = "<group>"; };
 		CDE034B02351317C004287E9 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		CDE034B223514511004287E9 /* AdvancedPhotoCaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedPhotoCaptureViewController.swift; sourceTree = "<group>"; };
+		CDE034BB23523623004287E9 /* DotOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotOverlayView.swift; sourceTree = "<group>"; };
 		F72A9A61DA96E66B280FD072 /* Pods-ReceiptMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiptMate.debug.xcconfig"; path = "Target Support Files/Pods-ReceiptMate/Pods-ReceiptMate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -209,6 +211,7 @@
 				CD17B5B92350F80600FA7FDD /* MoreOptionsView.swift */,
 				CDA5F82423341C8B005C915E /* RMSearchField.swift */,
 				CDA5F82B23342E19005C915E /* RMLoginView.swift */,
+				CDE034BB23523623004287E9 /* DotOverlayView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				CDD437A522E4C164003A5A4B /* UIImageExtensions.swift in Sources */,
 				CD04308322DC47100018D584 /* ReceiptTableViewController.swift in Sources */,
 				CDB4F7FD231DEA7F002244E9 /* Assets.swift in Sources */,
+				CDE034BC23523623004287E9 /* DotOverlayView.swift in Sources */,
 				CD17B5BA2350F80600FA7FDD /* MoreOptionsView.swift in Sources */,
 				CDE034B323514511004287E9 /* AdvancedPhotoCaptureViewController.swift in Sources */,
 				CDD4379C22DCD6C3003A5A4B /* StoreCell.swift in Sources */,

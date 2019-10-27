@@ -283,14 +283,14 @@ class AddReceiptViewController: LUIViewController {
     @objc private func requestAdvancedCapture(_ sender: LUIButton) {
         let advancedVC = AdvancedPhotoCaptureViewController()
         advancedVC.delegate = self
-        self.present(advancedVC.dismissableModalViewController())
+        self.present(advancedVC.dissmissableNavigation())
     }
     
     @objc private func previewImage(_ sender: UIImageView) {
         if let receiptImage = self.receiptImage {
             self.previewer.previewContent = [receiptImage]
             
-            self.navigation?.present(self.previewer.dismissableModalViewController(), animated: true, completion: nil)
+            self.navigation?.present(self.previewer.dissmissableNavigation(), animated: true, completion: nil)
         }
     }
     

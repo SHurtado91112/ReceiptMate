@@ -30,8 +30,16 @@ class ReceiptTableViewController: LUITableViewController {
     
     func searchBarAppear(_ appeared: Bool) {
         if let searchbar = self.navigationItem.searchController?.searchBar {
+            
+            searchbar.tintColor = UIColor.color(for: .theme)
+            searchbar.placeholder = "Search..."
+            
+            self.navigationItem.backBarButtonItem?.tintColor = UIColor.color(for: .theme)
+            
+            self.navigationItem.searchController?.isEditing = false
             UIView.animate(withDuration: TimeInterval.timeInterval(for: .fast)) {
                 searchbar.alpha = appeared ? 1.0 : 0.0
+                searchbar.searchTextField.alpha = appeared ? 1.0 : 0.0
             }
         }
     }
@@ -257,7 +265,7 @@ class ReceiptTableViewController: LUITableViewController {
         }
         
         addReceiptVC.storeSuggestions = storeNames.sorted()
-        let modalVC = addReceiptVC.dismissableModalViewController()
+        let modalVC = addReceiptVC.dissmissableNavigation()
         self.present(modalVC)
     }
 }
@@ -293,7 +301,7 @@ extension ReceiptTableViewController: ReceiptCellDelegate {
             self.previewer.previewContent = [receiptImage]
             self.previewer.previewDelegate = self
             
-            self.navigation?.present(self.previewer.dismissableModalViewController(), animated: true, completion: nil)
+            self.navigation?.present(self.previewer.dissmissableNavigation())
         }
     }
 }
@@ -303,6 +311,7 @@ extension ReceiptTableViewController: StoreCellDelegate {
     func storeSelected(_ store: Store?) {
         let storeVC = StoreReceiptTableViewController(cellType: ReceiptCell.self, cellIdentifier: ReceiptCell.identifier)
         storeVC.store = store
+        
         self.push(to: storeVC)
     }
     

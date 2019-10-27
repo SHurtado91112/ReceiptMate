@@ -11,6 +11,7 @@ import LazyUI
 
 protocol RMLoginViewDelegate {
     func basicValidationPassedForUser(email: String, password: String, signingUp: Bool)
+    func otherLoginModeRequested()
 }
 
 class RMLoginView: LUIView {
@@ -22,6 +23,8 @@ class RMLoginView: LUIView {
             self.statusLabel.text = self.forLogin ? "Welcome back!" : "Let's get started!"
             
             self.submitBtn.text = self.forLogin ? "Log in" : "Sign up"
+            
+            self.otherModeBtn.text = self.forLogin ? "Don't have an account? Sign up!" : "Already have an account? Log in!"
             
             let fields: [UIResponder] = self.forLogin ? [self.emailField.field, self.passwordField.field] : [self.emailField.field, self.passwordField.field,  self.confirmField.field]
             LUIKeyboardManager.shared.setTextFields(fields)
@@ -123,6 +126,12 @@ class RMLoginView: LUIView {
         return btn
     } ()
     
+    private lazy var otherModeBtn: LUIButton = {
+        let btn = LUIButton(style: .none, affirmation: false, negation: false, raised: false, paddingType: .regular, fontSize: .regular, textFontStyle: .regular)
+        btn.onClick(sender: self, selector: #selector(self.otherModeRequested))
+        return btn
+    } ()
+    
     override public init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -143,6 +152,7 @@ class RMLoginView: LUIView {
         
         self.fieldContentView.addPadding(.regular)
         self.fieldContentView.addArrangedSubview(contentView: self.submitBtn, fill: true)
+        self.fieldContentView.addArrangedSubview(contentView: self.otherModeBtn, fill: true)
         
         self.fill(self.fieldContentView, padding: .regular, withSafety: true)
     }
@@ -176,6 +186,10 @@ class RMLoginView: LUIView {
         guard let password = self.password else { return }
         
         self.delegate?.basicValidationPassedForUser(email: email, password: password, signingUp: !self.forLogin)
+    }
+    
+    @objc private func otherModeRequested() {
+        self.delegate?.otherLoginModeRequested()
     }
     
     private func isValidEmail(emailStr:String) -> Bool {

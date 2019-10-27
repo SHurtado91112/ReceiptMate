@@ -39,6 +39,21 @@ fileprivate class _RMLoginViewController: LUIViewController, RMLoginViewDelegate
     
     // MARK: - RMLoginViewDelegate
     
+    func otherLoginModeRequested() {
+        
+        let nextMode = !self.forLogin
+        let nav = self.navigation
+        
+        let authVC = _RMLoginViewController()
+        authVC.forLogin = nextMode
+        authVC.delegate = self.delegate
+        
+        self.pop()
+        
+        nav?.push(to: authVC)
+        
+    }
+    
     func basicValidationPassedForUser(email: String, password: String, signingUp: Bool) {
         
         if signingUp {
@@ -186,7 +201,7 @@ class LoginViewController: LUIViewController {
 
     private func goToHomePage() {
         let receiptTableVC = ReceiptTableViewController(cellType: StoreCell.self, cellIdentifier: StoreCell.identifier)
-        self.present(LUINavigationViewController(rootVC: receiptTableVC))
+        self.presentNavigation(receiptTableVC)
     }
 }
 

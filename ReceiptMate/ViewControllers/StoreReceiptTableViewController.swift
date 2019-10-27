@@ -93,7 +93,7 @@ extension StoreReceiptTableViewController: ReceiptCellDelegate {
         if let receiptImage = receipt?.receiptImage {
             self.previewer.previewContent = [receiptImage]
             
-            self.navigation?.present(self.previewer.dismissableModalViewController(), animated: true, completion: nil)
+            self.navigation?.present(self.previewer.dissmissableNavigation(), animated: true, completion: nil)
         }
     }
 }
