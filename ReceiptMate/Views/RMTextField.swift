@@ -39,7 +39,7 @@ class RMTextField: LUIView {
         return self.textField
     }
     
-    private var direction: NSLayoutConstraint.Axis = .horizontal
+    private var direction: NSLayoutConstraint.Axis?
     
     private lazy var textField: LUITextField = {
         let field = LUITextField(paddingType: .regular, fontSize: .regular, textFontStyle: .regular, placeholderFontStyle: .italics)
@@ -59,24 +59,24 @@ class RMTextField: LUIView {
         if self.direction == .horizontal {
             stack = LUIStackView(padding: .regular)
             
-            stack?.addArrangedSubview(contentViews: [self.subtitleLabel, self.textField], fill: true, direction: .horizontal, distribution: UIStackView.Distribution.fill)
+            stack?.addArrangedSubview(contentViews: [self.subtitleLabel, self.textField], fill: true, direction: self.direction ?? .horizontal, distribution: UIStackView.Distribution.fill)
         } else {
             stack = LUIStackView(padding: .none)
             
-            stack?.addArrangedSubview(contentViews: [self.subtitleLabel, self.textField], fill: true, direction: self.direction, distribution: .fill, alignment: .fill)
+            stack?.addArrangedSubview(contentViews: [self.subtitleLabel, self.textField], fill: true, direction: self.direction ?? .vertical, distribution: .fill, alignment: .fill)
         }
         
         return stack ?? LUIStackView(padding: .none)
     } ()
     
-    required convenience init(direction: NSLayoutConstraint.Axis) {
-        self.init(frame: .zero)
-        self.direction = direction
-        self.setUpView()
+    required init() {
+        super.init()
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    required convenience init(direction: NSLayoutConstraint.Axis) {
+        self.init()
+        self.direction = direction
+        self.deferredSetUp()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -97,6 +97,13 @@ class RMTextField: LUIView {
     }
     
     func setUpView() {
+        if let _ = self.direction {
+            self.deferredSetUp()
+        }
+    }
+    
+    private func deferredSetUp() {
+        
         self.backgroundColor = .clear
         self.addSubview(self.fieldStack)
         self.fill(self.fieldStack, padding: .none)

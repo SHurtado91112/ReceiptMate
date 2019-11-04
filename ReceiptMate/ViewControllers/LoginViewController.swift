@@ -39,6 +39,10 @@ fileprivate class _RMLoginViewController: LUIViewController, RMLoginViewDelegate
     
     // MARK: - RMLoginViewDelegate
     
+    func fieldsForEventRegistering(textFields: [UIResponder]) {
+        LUIKeyboardManager.shared.setTextFields(textFields, forController: self)
+    }
+    
     func otherLoginModeRequested() {
         
         let nextMode = !self.forLogin
@@ -103,7 +107,7 @@ class LoginViewController: LUIViewController {
     } ()
     
     lazy var descriptionLabel : LUILabel = {
-        let label = LUILabel(color: .intermidiateText, fontSize: .regular, fontStyle: .italics)
+        let label = LUILabel(color: .intermediateText, fontSize: .regular, fontStyle: .italics)
         
         self.addView(label)
         self.center(label)

@@ -27,7 +27,7 @@ class StoreCell: LUITableCell {
     } ()
     
     lazy var numberOfReceiptsLabel : LUILabel = {
-        let label = LUILabel(color: .intermidiateText, fontSize: .regular, fontStyle: .italics)
+        let label = LUILabel(color: .intermediateText, fontSize: .regular, fontStyle: .italics)
         
         self.contentView.addSubview(label)
         self.storeLabel.bottom(label, fromTop: true, paddingType: .regular, withSafety: false)

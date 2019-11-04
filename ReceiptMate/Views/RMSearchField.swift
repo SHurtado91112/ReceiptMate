@@ -40,7 +40,7 @@ class RMSearchField: LUIView {
         didSet {
             let text = self.placeholder
             guard let font = self.textField.font?.withStyle(.italics) else { return }
-            let color = LUIThemeManager.shared.color(for: .intermidiateText)
+            let color = LUIThemeManager.shared.color(for: .intermediateText)
             self.textField.attributedPlaceholder = NSAttributedString(string: text, attributes: [
                 NSAttributedString.Key.foregroundColor: color,
                 NSAttributedString.Key.font : font
@@ -118,23 +118,10 @@ class RMSearchField: LUIView {
         return stack
     } ()
     
-    convenience init() {
-        self.init(frame: .zero)
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        self.setUpView()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
     func setUpView() {
         self.addSubview(self.fieldStack)
         self.fill(self.fieldStack, padding: .none)
+        self.field.tintColor = UIColor.color(for: .theme)
     }
 
 }

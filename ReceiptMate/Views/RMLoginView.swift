@@ -12,6 +12,7 @@ import LazyUI
 protocol RMLoginViewDelegate {
     func basicValidationPassedForUser(email: String, password: String, signingUp: Bool)
     func otherLoginModeRequested()
+    func fieldsForEventRegistering(textFields: [UIResponder])
 }
 
 class RMLoginView: LUIView {
@@ -27,7 +28,7 @@ class RMLoginView: LUIView {
             self.otherModeBtn.text = self.forLogin ? "Don't have an account? Sign up!" : "Already have an account? Log in!"
             
             let fields: [UIResponder] = self.forLogin ? [self.emailField.field, self.passwordField.field] : [self.emailField.field, self.passwordField.field,  self.confirmField.field]
-            LUIKeyboardManager.shared.setTextFields(fields)
+            self.delegate?.fieldsForEventRegistering(textFields: fields)
         }
     }
     
@@ -132,17 +133,7 @@ class RMLoginView: LUIView {
         return btn
     } ()
     
-    override public init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        self.setUpView()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    internal func setUpView() {
+    func setUpView() {
         
         self.addSubview(self.fieldContentView)
         self.fieldContentView.addArrangedSubview(contentView: self.statusLabel, fill: true)

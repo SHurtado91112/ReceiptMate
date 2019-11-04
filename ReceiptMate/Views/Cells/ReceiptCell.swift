@@ -19,7 +19,7 @@ class ReceiptCell: LUITableCell {
 
     static let identifier = "receipt_cell"
     lazy var storeLabel : LUILabel = {
-        let label = LUILabel(color: .intermidiateText, fontSize: .small, fontStyle: .regular)
+        let label = LUILabel(color: .intermediateText, fontSize: .small, fontStyle: .regular)
         
         self.contentView.addSubview(label)
         
@@ -70,7 +70,7 @@ class ReceiptCell: LUITableCell {
         tv.spaceBetweenTags = paddingManager.padding(for: .regular)
         tv.font = tv.font?.substituteFont.withSize(.regular)
         
-        tv.backgroundColor = UIColor.color(for: .intermidiateBackground).withAlphaComponent(0.2)
+        tv.backgroundColor = UIColor.color(for: .intermediateBackground).withAlphaComponent(0.2)
         tv.tintColor = UIColor.color(for: .theme).withAlphaComponent(0.6)
         tv.textColor = UIColor.color(for: .lightText)
         tv.fieldTextColor = UIColor.color(for: .darkText)
@@ -78,7 +78,7 @@ class ReceiptCell: LUITableCell {
         tv.selectedTextColor = UIColor.color(for: .lightText)
         tv.delimiter = ""
         tv.isDelimiterVisible = false
-        tv.placeholderColor = UIColor.color(for: .intermidiateText)
+        tv.placeholderColor = UIColor.color(for: .intermediateText)
         tv.placeholderAlwaysVisible = false
         tv.returnKeyType = .next
         tv.acceptTagOption = .return
