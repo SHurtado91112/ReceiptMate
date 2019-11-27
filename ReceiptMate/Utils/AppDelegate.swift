@@ -23,10 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Mark: - LazyUI set up
         
         let receiptMateTheme = LUIColor(theme: UIColor(hexString: "#B76E79"), border: UIColor(hexString: "#A499B3"), shadow: UIColor.black.withAlphaComponent(0.6), darkBackground: UIColor(hexString: "#643C42"), lightBackground: UIColor.white, intermediateBackground: UIColor(hexString: "#A18388"), darkText: UIColor(hexString: "#43282C"), lightText: UIColor.white, intermediateText: UIColor(hexString: "#A18388"), affirmation: UIColor(hexString: "78BC61"), negation: UIColor.red)
-        LUIThemeManager.shared.setUniversalTheme(with: receiptMateTheme)
+        LUIThemeManager.shared.setUniversalTheme(with: LUIColor())
         
         let fontSizes = LUIFontSize(title: 34.0, large: 24.0, regular: 16.0, small: 12.0)
-        LUIFontManager.shared.setUniversalFont(named: "Didot", for: fontSizes)
+        
+        //system
+        LUIFontManager.shared.setUniversalFont()
+        
+        // didot
+//        LUIFontManager.shared.setUniversalFont(named: "Didot", for: fontSizes)
         
         let paddingSizes = LUIPadding(large: 32.0, regular: 16.0, small: 8.0)
         LUIPaddingManager.shared.setUniversalPadding(for: paddingSizes)

@@ -17,7 +17,9 @@ protocol ReceiptCellDelegate {
 
 class ReceiptCell: LUITableCell {
 
-    static let identifier = "receipt_cell"
+    static var identifier = "receipt_cell"
+    var action: (() -> Void)?
+    
     lazy var storeLabel : LUILabel = {
         let label = LUILabel(color: .intermediateText, fontSize: .small, fontStyle: .regular)
         
@@ -129,9 +131,6 @@ class ReceiptCell: LUITableCell {
             self.delegate?.receiptSelected(self.receipt)
         }
     }
-}
-
-extension ReceiptCell: LUICellData {
     
     func setUpCell() {
         // initialize if needed
@@ -142,7 +141,6 @@ extension ReceiptCell: LUICellData {
             self.receipt = receipt
         }
     }
-    
 }
 
 extension ReceiptCell: LUIKeyboardToolBarDelegate {

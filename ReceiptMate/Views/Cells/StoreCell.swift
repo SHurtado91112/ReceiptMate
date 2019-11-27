@@ -15,7 +15,10 @@ protocol StoreCellDelegate {
 
 class StoreCell: LUITableCell {
     
-    static let identifier = "store_cell"
+    static var identifier: String = "store_cell"
+    
+    var action: (() -> Void)?
+    
     lazy var storeLabel : LUILabel = {
         let label = LUILabel(color: .darkText, fontSize: .large, fontStyle: .bold)
         
@@ -52,7 +55,6 @@ class StoreCell: LUITableCell {
         
         return iv
     } ()
- 
     
     var delegate: StoreCellDelegate?
     var store: Store? {
@@ -71,9 +73,6 @@ class StoreCell: LUITableCell {
             self.delegate?.storeSelected(self.store)
         }
     }
-}
-
-extension StoreCell: LUICellData {
     
     func setUpCell() {
         // initialize if needed
@@ -84,5 +83,4 @@ extension StoreCell: LUICellData {
             self.store = store
         }
     }
-    
 }
